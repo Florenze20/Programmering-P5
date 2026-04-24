@@ -33,3 +33,6 @@ mesh = SubResource("BoxMesh_rgtto")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=872175719]
 transform = Transform3D(-0.007923684, -0.8659982, 0.49998435, 0, 0.5, 0.86602545, -0.99996865, 0.0068621114, -0.0039618425, 152.01245, 140.64319, 101.47173)
+
+[node name="MeshInstance3D Nerfgun LoL" type="MeshInstance3D" parent="." unique_id=1484934976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1273818, 0)
