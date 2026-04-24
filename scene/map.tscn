@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhwdfy0sglbxp"]
+[gd_scene format=3 uid="uid://dhwdfy0sglbxp"]
 
 [ext_resource type="Texture2D" uid="uid://us37q7df7qat" path="res://texture/laminate_floor_03_diff_4k.jpg" id="1_rgtto"]
 
@@ -14,22 +14,22 @@ albedo_texture = ExtResource("1_rgtto")
 material = SubResource("StandardMaterial3D_h0nt1")
 subdivide_width = 3
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=2001700630]
 
-[node name="Basic map" type="GridMap" parent="."]
+[node name="Basic map" type="GridMap" parent="." unique_id=1719384862]
 mesh_library = SubResource("MeshLibrary_i7uae")
 
-[node name="Platform2" type="MeshInstance3D" parent="."]
+[node name="Platform2" type="MeshInstance3D" parent="." unique_id=969632968]
 transform = Transform3D(-38.8608, 0, 0, 0, -0.062043987, 0, 0, 0, -636.0421, 67.13499, -0.625, -2.88517)
 material_override = SubResource("StandardMaterial3D_wpp1k")
 mesh = SubResource("BoxMesh_rgtto")
 skeleton = NodePath("../Platform")
 metadata/_edit_group_ = true
 
-[node name="Platform" type="MeshInstance3D" parent="."]
+[node name="Platform" type="MeshInstance3D" parent="." unique_id=1304062143]
 transform = Transform3D(95.238, 0, 0, 0, 0.2890104, 0, 0, 0, 629.6067, 0.12375975, -0.62460375, -0.31887054)
 material_override = SubResource("StandardMaterial3D_wpp1k")
 mesh = SubResource("BoxMesh_rgtto")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=872175719]
 transform = Transform3D(-0.007923684, -0.8659982, 0.49998435, 0, 0.5, 0.86602545, -0.99996865, 0.0068621114, -0.0039618425, 152.01245, 140.64319, 101.47173)

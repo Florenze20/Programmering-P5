@@ -17,6 +17,7 @@ func _on_button_pressed():
 #sadaskjd
 #Edgen er sej
 #Grabas er også sej
+#Alle i denne gruppe er mega seje
 func _on_quit_pressed():
 	get_tree().quit()
 	
