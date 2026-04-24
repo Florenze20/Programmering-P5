@@ -11,11 +11,18 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scene/settings.tscn")
+	
 
 
 
 
 func _on_quit_pressed():
 	get_tree().quit()
+	
+#changes
+
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
