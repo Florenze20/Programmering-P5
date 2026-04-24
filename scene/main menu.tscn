@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://1rvlfqxoawo2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 615.0
+offset_bottom = 332.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 414.0
+offset_bottom = 150.0
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 184.0
+offset_right = 416.0
+offset_bottom = 323.0
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_top = 352.0
+offset_right = 412.0
+offset_bottom = 480.0
