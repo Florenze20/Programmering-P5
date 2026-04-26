@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://u6wvyv01we48"]
+
+[node name="Projectiles" type="Node3D" unique_id=907944839]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1857887421]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1156896627]
