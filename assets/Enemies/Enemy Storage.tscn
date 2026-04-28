@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://dgwerah8o1dbv"]
 
+[ext_resource type="Script" uid="uid://47bp8ui8avgj" path="res://assets/Enemies/basic_enemy.gd" id="1_p2mbj"]
+
 [node name="EnemyStorage" type="Node3D" unique_id=1299777156]
+
+[node name="Basic enemy" type="Area3D" parent="." unique_id=1821510758]
+script = ExtResource("1_p2mbj")
+
+[node name="Basic enemy collision" type="CollisionShape3D" parent="Basic enemy" unique_id=918746600]

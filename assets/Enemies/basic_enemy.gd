@@ -5,9 +5,8 @@ class_name EnemyBasic
 
 # variable for the health of the enemy
 var enemyHP = 25
-
-
-
+var enemyTier = 0
+var enemyFootprint = 2
 
 
 
