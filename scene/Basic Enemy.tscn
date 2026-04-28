@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgwerah8o1dbv"]
+[gd_scene format=3 uid="uid://dgwerah8o1dbv"]
 
 [ext_resource type="ArrayMesh" uid="uid://ecbavecyw263" path="res://assets/enemy/JDSherbert - 3D Rubber Duck Pack/obj/3D Rubber Duck Pack - Duck.obj" id="1_ehiyo"]
 [ext_resource type="Script" uid="uid://cdwjep1mdbf1c" path="res://scene/basic_enemy.gd" id="1_taawf"]
