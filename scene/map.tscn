@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://dhwdfy0sglbxp"]
+[gd_scene load_steps=4 format=3 uid="uid://dhwdfy0sglbxp"]
 
-[ext_resource type="Script" uid="uid://j7etbqekvwiy" path="res://scene/map.gd" id="1_h0nt1"]
-[ext_resource type="Script" uid="uid://dk1csmkkow0qh" path="res://scene/enemies.gd" id="2_h0nt1"]
-[ext_resource type="Script" uid="uid://bv6sbbihxu5bg" path="res://scene/plants.gd" id="3_nf54y"]
+[ext_resource type="Script" uid="uid://j7etbqekvwiy" path="res://script/scripts/map.gd" id="1_h0nt1"]
+[ext_resource type="Script" uid="uid://dk1csmkkow0qh" path="res://script/enemies.gd" id="2_h0nt1"]
+[ext_resource type="Script" uid="uid://bv6sbbihxu5bg" path="res://script/scripts/plants.gd" id="3_nf54y"]
 
-[node name="Node2D" type="Node2D" unique_id=565890920]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_h0nt1")
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1956969205]
+[node name="TileMap" type="TileMap" parent="."]
 format = 2
 
-[node name="Enemies" type="Node2D" parent="." unique_id=298828715]
+[node name="Enemies" type="Node2D" parent="."]
 script = ExtResource("2_h0nt1")
 
-[node name="Plants" type="Node2D" parent="." unique_id=1422258032]
+[node name="Plants" type="Node2D" parent="."]
 script = ExtResource("3_nf54y")
 
-[node name="Node" type="Node2D" parent="." unique_id=9633120]
+[node name="Node" type="Node2D" parent="."]
