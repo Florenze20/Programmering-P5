@@ -1,30 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://1rvlfqxoawo2"]
+[gd_scene format=3 uid="uid://1rvlfqxoawo2"]
 
 [ext_resource type="Script" uid="uid://pkksquy314ne" path="res://script/main_menu.gd" id="1_glf0w"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=2001358722]
 script = ExtResource("1_glf0w")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=771579003]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 615.0
 offset_bottom = 332.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="Button" parent="Control" unique_id=1717665723]
 layout_mode = 0
 offset_right = 414.0
 offset_bottom = 150.0
 text = "Start"
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="Button2" type="Button" parent="Control" unique_id=1570370690]
 layout_mode = 0
 offset_top = 184.0
 offset_right = 416.0
 offset_bottom = 323.0
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Control"]
+[node name="Quit" type="Button" parent="Control" unique_id=1841740736]
 layout_mode = 0
 offset_top = 352.0
 offset_right = 412.0
