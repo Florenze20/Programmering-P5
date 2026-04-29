@@ -1,0 +1,1 @@
+extends EnemyBasic #ARVER FRA ENEMYBASIC CLASS

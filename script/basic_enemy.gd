@@ -2,7 +2,7 @@
 #class for basic enemies.
 #this is a template for the first enemy types
 class_name EnemyBasic
-
+extends Node2D
 # variable for the health of the enemy
 var enemyHP = 25
 # variable for enemy tier. Higher tier means stronger enemy

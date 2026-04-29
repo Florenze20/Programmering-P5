@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmyteq4v4ep0q"]
+
+[ext_resource type="Script" uid="uid://ccc35qobgj23p" path="res://scene/bat_enemy.gd" id="1_5xt7a"]
+[ext_resource type="Texture2D" uid="uid://bfll7kr6j4dcu" path="res://assets/sprites/Bat_Sprite_Sheet.png" id="1_srfw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xt7a"]
+atlas = ExtResource("1_srfw4")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_817f8"]
+atlas = ExtResource("1_srfw4")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4orr"]
+atlas = ExtResource("1_srfw4")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m453m"]
+atlas = ExtResource("1_srfw4")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6x17"]
+atlas = ExtResource("1_srfw4")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqa53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xt7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_817f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4orr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m453m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6x17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swo40"]
+
+[node name="Bat" type="Node2D"]
+script = ExtResource("1_5xt7a")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(2, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -8)
+rotation = -3.1415925
+scale = Vector2(1, 0.8106125)
+sprite_frames = SubResource("SpriteFrames_pqa53")
+autoplay = "default"
+frame_progress = 0.6212184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_swo40")
