@@ -1,43 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhwdfy0sglbxp"]
+[gd_scene load_steps=4 format=3 uid="uid://dhwdfy0sglbxp"]
 
 [ext_resource type="Script" uid="uid://j7etbqekvwiy" path="res://scene/map.gd" id="1_h0nt1"]
-[ext_resource type="Texture2D" uid="uid://us37q7df7qat" path="res://texture/laminate_floor_03_diff_4k.jpg" id="1_rgtto"]
-[ext_resource type="PackedScene" uid="uid://dgwerah8o1dbv" path="res://scene/Basic Enemy.tscn" id="2_nf54y"]
+[ext_resource type="Script" uid="uid://dk1csmkkow0qh" path="res://scene/enemies.gd" id="2_h0nt1"]
+[ext_resource type="Script" uid="uid://bv6sbbihxu5bg" path="res://scene/plants.gd" id="3_nf54y"]
 
-[sub_resource type="MeshLibrary" id="MeshLibrary_i7uae"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpp1k"]
-albedo_texture = ExtResource("1_rgtto")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0nt1"]
-albedo_texture = ExtResource("1_rgtto")
-
-[sub_resource type="BoxMesh" id="BoxMesh_rgtto"]
-material = SubResource("StandardMaterial3D_h0nt1")
-subdivide_width = 3
-
-[node name="Node3D" type="Node3D"]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_h0nt1")
-enemy_scene = ExtResource("2_nf54y")
 
-[node name="Basic map" type="GridMap" parent="."]
-mesh_library = SubResource("MeshLibrary_i7uae")
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
 
-[node name="Platform2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-38.8608, 0, 0, 0, -0.062043987, 0, 0, 0, -636.0421, 86.5769, -0.625, -2.88517)
-material_override = SubResource("StandardMaterial3D_wpp1k")
-mesh = SubResource("BoxMesh_rgtto")
-skeleton = NodePath("Platform")
-metadata/_edit_group_ = true
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("2_h0nt1")
 
-[node name="Platform" type="MeshInstance3D" parent="Platform2"]
-transform = Transform3D(-2.4507473, 0, 0, 0, -4.6581535, 0, 0, 0, -0.98988205, 1.7243913, -0.006386757, -0.004034795)
-material_override = SubResource("StandardMaterial3D_wpp1k")
-mesh = SubResource("BoxMesh_rgtto")
-skeleton = NodePath("../..")
+[node name="Plants" type="Node2D" parent="."]
+script = ExtResource("3_nf54y")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.007923684, -0.8659982, 0.49998435, 0, 0.5, 0.86602545, -0.99996865, 0.0068621114, -0.0039618425, 141.55162, 170.79575, -11.397594)
-
-[node name="MeshInstance3D Nerfgun LoL" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1273818, 0)
+[node name="Node" type="Node2D" parent="."]
