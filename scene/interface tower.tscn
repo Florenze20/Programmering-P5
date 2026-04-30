@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://b5m2gyx0kg2v3"]
 
 [ext_resource type="Texture2D" uid="uid://dse5dh1s7ail7" path="res://assets/UI assets pack 2/UI books & more.png" id="1_yvjwx"]
+[ext_resource type="Script" uid="uid://cpa4xpxs5odop" path="res://script/interface_tower.gd" id="2_jwbyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwbyu"]
 atlas = ExtResource("1_yvjwx")
 region = Rect2(510.98572, 13.149435, 49.8739, 65.480675)
 
 [node name="BoxInterface" type="Node2D" unique_id=1323542855]
+script = ExtResource("2_jwbyu")
 
 [node name="BoxInterface" type="TextureRect" parent="." unique_id=1694286871]
 offset_left = 2.0
