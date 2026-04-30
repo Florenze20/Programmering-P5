@@ -13,7 +13,10 @@ var AllyBaseDamage= 50
 
 #Damage taking function, replace AllyBaseDamage with a enemy damage variable or constant
 func AllyLifeLoss(AllyBaseDamage):
-	AllyHp -= (AllyBaseDamage-AllyDRFlat)/(1+AllyDRPercent/100)
+	#Ally Damage reduction formula is as follows:
+	#AllyBaseDamage-AllyDRFlat is the damage dealt, minus a flat damage amount.
+	#1+AllyDRPercent/100 is 1 plus the ally damage reduction percent in percent
+	AllyHp -= (AllyBaseDamage)/(1+AllyDRPercent/100)-AllyDRFlat
 	if AllyHp < 1: 	
 		AllyHp = 0
 		AllyDeath()
