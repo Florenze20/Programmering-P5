@@ -1,32 +1,43 @@
 [gd_scene format=3 uid="uid://dhwdfy0sglbxp"]
 
 [ext_resource type="Script" path="res://script/scripts/map.gd" id="1_h0nt1"]
+[ext_resource type="Script" path="res://script/enemies.gd" id="2_h0nt1"]
 [ext_resource type="Script" path="res://script/scripts/plants.gd" id="3_nf54y"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://b5m2gyx0kg2v3" path="res://scene/interface tower.tscn" id="4_4xw1d"]
 [ext_resource type="Texture2D" uid="uid://v3yewhpsf453" path="res://texture/Card_Game_Lawn (1).webp" id="4_nf54y"]
 [ext_resource type="Script" uid="uid://cpa4xpxs5odop" path="res://script/interface_tower.gd" id="5_bq37x"]
+=======
+>>>>>>> 7e20e25c3460a0c5f0d62288eab4342b04c95cd2
 
-[sub_resource type="GDScript" id="GDScript_h0nt1"]
-
-[node name="Map" type="Node2D" unique_id=53648276]
+[node name="Map" type="Node2D" unique_id=323633588]
 script = ExtResource("1_h0nt1")
 
+<<<<<<< HEAD
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=1349945850]
 
 [node name="CardGameLawn" type="Sprite2D" parent="TileMap" unique_id=1300057764]
 position = Vector2(802, 318)
 scale = Vector2(1.771, 1.817)
 texture = ExtResource("4_nf54y")
+=======
+[node name="TileMap" type="TileMap" parent="." unique_id=1467848947]
+format = 2
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1844929425]
-script = SubResource("GDScript_h0nt1")
+[node name="Enemies" type="Node2D" parent="." unique_id=977508827]
+script = ExtResource("2_h0nt1")
+>>>>>>> 7e20e25c3460a0c5f0d62288eab4342b04c95cd2
 
-[node name="Plants" type="Node2D" parent="." unique_id=899451948]
+[node name="Plants" type="Node2D" parent="." unique_id=784478578]
 script = ExtResource("3_nf54y")
 
+<<<<<<< HEAD
 [node name="Node" type="Node2D" parent="." unique_id=1017771630]
 
 [node name="Map interrace" parent="." unique_id=1323542855 instance=ExtResource("4_4xw1d")]
 position = Vector2(68, 152)
 scale = Vector2(1.6139532, 1.7077055)
 script = ExtResource("5_bq37x")
+=======
+[node name="Node" type="Node2D" parent="." unique_id=261371294]
+>>>>>>> 7e20e25c3460a0c5f0d62288eab4342b04c95cd2
