@@ -8,8 +8,10 @@ script = ExtResource("1_glf0w")
 [node name="Control" type="Control" parent="." unique_id=771579003]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 615.0
-offset_bottom = 332.0
+offset_left = 368.0
+offset_top = 64.0
+offset_right = 983.0
+offset_bottom = 396.0
 
 [node name="Start" type="Button" parent="Control" unique_id=1717665723]
 layout_mode = 0
