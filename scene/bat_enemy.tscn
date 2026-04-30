@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmyteq4v4ep0q"]
 
-[ext_resource type="Script" uid="uid://ccc35qobgj23p" path="res://scene/bat_enemy.gd" id="1_5xt7a"]
+[ext_resource type="Script" uid="uid://ccc35qobgj23p" path="res://enemy/bat_enemy.gd" id="1_5xt7a"]
 [ext_resource type="Texture2D" uid="uid://bfll7kr6j4dcu" path="res://assets/sprites/Bat_Sprite_Sheet.png" id="1_srfw4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xt7a"]
@@ -60,7 +60,7 @@ rotation = -3.1415925
 scale = Vector2(1, 0.8106125)
 sprite_frames = SubResource("SpriteFrames_pqa53")
 autoplay = "default"
-frame_progress = 0.6212184
+frame_progress = 0.9516249
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, -5)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvh8r04htdgkt"
-path="res://.godot/imported/3D Rubber Duck Pack - Render Image.png-902fc68aaf91f9d5df32424faf2fbc84.ctex"
+path="res://.godot/imported/3D Rubber Duck Pack - Render Image.png-22a98ffaf3a3418d2449f34681709c2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy/JDSherbert - 3D Rubber Duck Pack/3D Rubber Duck Pack - Render Image.png"
-dest_files=["res://.godot/imported/3D Rubber Duck Pack - Render Image.png-902fc68aaf91f9d5df32424faf2fbc84.ctex"]
+source_file="res://assets/JDSherbert - 3D Rubber Duck Pack/3D Rubber Duck Pack - Render Image.png"
+dest_files=["res://.godot/imported/3D Rubber Duck Pack - Render Image.png-22a98ffaf3a3418d2449f34681709c2a.ctex"]
 
 [params]
 

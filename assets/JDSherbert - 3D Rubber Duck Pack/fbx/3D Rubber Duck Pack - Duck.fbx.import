@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dx6ens2ijr7k0"
-path="res://.godot/imported/3D Rubber Duck Pack - Duck.fbx-98bcf68290a16e1338e1136b63dbb004.scn"
+path="res://.godot/imported/3D Rubber Duck Pack - Duck.fbx-ce7cea22f5713ed6ae0cb2d5fbe7d345.scn"
 
 [deps]
 
-source_file="res://assets/enemy/JDSherbert - 3D Rubber Duck Pack/fbx/3D Rubber Duck Pack - Duck.fbx"
-dest_files=["res://.godot/imported/3D Rubber Duck Pack - Duck.fbx-98bcf68290a16e1338e1136b63dbb004.scn"]
+source_file="res://assets/JDSherbert - 3D Rubber Duck Pack/fbx/3D Rubber Duck Pack - Duck.fbx"
+dest_files=["res://.godot/imported/3D Rubber Duck Pack - Duck.fbx-ce7cea22f5713ed6ae0cb2d5fbe7d345.scn"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgwerah8o1dbv"]
 
-[ext_resource type="ArrayMesh" uid="uid://ecbavecyw263" path="res://assets/enemy/JDSherbert - 3D Rubber Duck Pack/obj/3D Rubber Duck Pack - Duck.obj" id="1_ehiyo"]
-[ext_resource type="Script" uid="uid://47bp8ui8avgj" path="res://script/basic_enemy.gd" id="1_taawf"]
+[ext_resource type="ArrayMesh" uid="uid://ecbavecyw263" path="res://assets/JDSherbert - 3D Rubber Duck Pack/obj/3D Rubber Duck Pack - Duck.obj" id="1_ehiyo"]
+[ext_resource type="Script" uid="uid://ccm4hymahrqw1" path="res://script/basic_enemy.gd" id="1_taawf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wu2xt"]
 
