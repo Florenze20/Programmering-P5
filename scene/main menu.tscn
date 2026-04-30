@@ -11,13 +11,13 @@ anchors_preset = 0
 offset_right = 615.0
 offset_bottom = 332.0
 
-[node name="Button" type="Button" parent="Control" unique_id=1717665723]
+[node name="Start" type="Button" parent="Control" unique_id=1717665723]
 layout_mode = 0
 offset_right = 414.0
 offset_bottom = 150.0
 text = "Start"
 
-[node name="Button2" type="Button" parent="Control" unique_id=1570370690]
+[node name="Settings" type="Button" parent="Control" unique_id=1570370690]
 layout_mode = 0
 offset_top = 184.0
 offset_right = 416.0
@@ -31,6 +31,6 @@ offset_right = 412.0
 offset_bottom = 480.0
 text = "Quit"
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Settings" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
