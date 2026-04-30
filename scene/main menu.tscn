@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pkksquy314ne" path="res://script/main_menu.gd" id="1_glf0w"]
 
-[node name="Node2D" type="Node2D" unique_id=2001358722]
+[node name="Main menu" type="Node2D" unique_id=2001358722]
 script = ExtResource("1_glf0w")
 
 [node name="Control" type="Control" parent="." unique_id=771579003]
@@ -31,6 +31,6 @@ offset_right = 412.0
 offset_bottom = 480.0
 text = "Quit"
 
-[connection signal="pressed" from="Control/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Settings" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
