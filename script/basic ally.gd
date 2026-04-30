@@ -6,9 +6,11 @@ class_name BasicAlly
 var AllyMaxHp = 100
 var AllyHp = 100
 var AllyCost = 100
-#AllyDR is the damage reduction, currently a flat amount.
+#AllyDRFlat is the flat amount an amount of damage is reduced by, happens after the percent.
 var AllyDRFlat = 0
+#AllyDRPercent is the percentage amount an amount of damage is reduced by, happens before the flat reduction.
 var AllyDRPercent = 0
+#The base damage an ally unit does with its attacks.
 var AllyBaseDamage= 50
 
 #Damage taking function, replace AllyBaseDamage with a enemy damage variable or constant
@@ -21,6 +23,7 @@ func AllyLifeLoss(AllyBaseDamage):
 		AllyHp = 0
 		AllyDeath()
 
+#The ally dies.
 func AllyDeath():
 	remove_child(self)
 
