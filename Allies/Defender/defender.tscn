@@ -2,6 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://d3yyj277fdski" path="res://Allies/Defender/defender animation/Skeleton enemy.png" id="1_tmfan"]
 
+[sub_resource type="GDScript" id="GDScript_tmfan"]
+script/source = "extends BasicAlly
+
+func _ready():
+	super._ready()
+	var AllyMaxHp = 100
+	var AllyHp = 100
+	var AllyCost = 50
+"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6xbd"]
 atlas = ExtResource("1_tmfan")
 region = Rect2(0, 0, 64, 64)
@@ -253,8 +263,10 @@ animations = [{
 size = Vector2(36, 52)
 
 [node name="Defender" type="Node2D" unique_id=605924376]
+scale = Vector2(2.5735116, 2.7483425)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=234460427]
+script = SubResource("GDScript_tmfan")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1708736739]
 position = Vector2(1.9999994, -0.4999962)
@@ -262,7 +274,7 @@ scale = Vector2(0.96875, 1.015625)
 sprite_frames = SubResource("SpriteFrames_ovnjf")
 animation = &"attack_animation"
 autoplay = "idle"
-frame_progress = 0.05039299
+frame_progress = 0.14405502
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1539811726]
 position = Vector2(-3, -7)

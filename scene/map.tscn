@@ -1,13 +1,53 @@
 [gd_scene format=3 uid="uid://dhwdfy0sglbxp"]
 
 [ext_resource type="Script" uid="uid://b1y1f8run1oo6" path="res://script/map.gd" id="1_h0nt1"]
+[ext_resource type="PackedScene" uid="uid://dyhl0oailyycq" path="res://Allies/Farmer/Farmer_ally.tscn" id="2_jp76l"]
 [ext_resource type="Texture2D" uid="uid://wwgxm4ambvuw" path="res://Allies/Farmer/picture_frame/PVZOL_Chinese_Far_Future_Lawn (1).webp" id="2_nf54y"]
 [ext_resource type="PackedScene" uid="uid://b5m2gyx0kg2v3" path="res://scene/interface tower.tscn" id="2_wpp1k"]
+[ext_resource type="PackedScene" uid="uid://bxfn1im6gpi7k" path="res://Allies/Defender/defender.tscn" id="3_7ac5c"]
 [ext_resource type="PackedScene" uid="uid://bflv046je00kx" path="res://Allies/Farmer/picture_frame/Photoframe_ally_farmer.tscn" id="4_nf54y"]
 [ext_resource type="PackedScene" uid="uid://dc51bveyr3ccq" path="res://Allies/Defender/portrait/portraitDefender.tscn" id="5_4xw1d"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jp76l"]
+font_size = 17
+
+[sub_resource type="GDScript" id="GDScript_4xw1d"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_bq37x"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xw1d"]
+font_size = 35
+
 [node name="Map" type="Node2D" unique_id=2099491349]
 script = ExtResource("1_h0nt1")
+farmer_scene = ExtResource("2_jp76l")
+defender_scene = ExtResource("3_7ac5c")
+farmer_cost = null
+defender_cost = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913320566]
 position = Vector2(744, 332.00003)
@@ -33,9 +73,20 @@ position = Vector2(1015, 545)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=194383502]
 
+[node name="Allies" type="Node2D" parent="." unique_id=702218532]
+
 [node name="BoxInterface" parent="." unique_id=1323542855 instance=ExtResource("2_wpp1k")]
 position = Vector2(-5, 86)
 scale = Vector2(2.0187407, 2.301744)
+
+[node name="MoneyLabel" type="Label" parent="BoxInterface" unique_id=1739475764]
+offset_left = 19.814331
+offset_top = -33.452896
+offset_right = 94.81433
+offset_bottom = -9.452896
+scale = Vector2(1.4079041, 1.2465811)
+text = "Money: 0"
+label_settings = SubResource("LabelSettings_jp76l")
 
 [node name="PhotoframeAllyFarmer" parent="BoxInterface" unique_id=961441809 instance=ExtResource("4_nf54y")]
 position = Vector2(16.346825, 12.16469)
@@ -47,3 +98,31 @@ offset_top = 11.295783
 offset_right = 68.35945
 offset_bottom = 11.295783
 scale = Vector2(0.14409754, 0.13226761)
+
+[node name="FarmerButton" type="Button" parent="BoxInterface" unique_id=669929496]
+offset_left = 25.263275
+offset_top = 19.550392
+offset_right = 33.263275
+offset_bottom = 27.550392
+scale = Vector2(2.924369, 2.453548)
+script = SubResource("GDScript_4xw1d")
+
+[node name="DefenderButton" type="Button" parent="BoxInterface" unique_id=1489898412]
+offset_left = 78.266624
+offset_top = 18.681488
+offset_right = 86.266624
+offset_bottom = 26.681488
+scale = Vector2(3.365511, 2.835216)
+script = SubResource("GDScript_bq37x")
+
+[node name="WaveLabel" type="Label" parent="." unique_id=1747389238]
+offset_left = 811.0
+offset_top = 19.000004
+offset_right = 942.0
+offset_bottom = 68.0
+scale = Vector2(1.23661, 1.2783294)
+text = "Wave: 1"
+label_settings = SubResource("LabelSettings_4xw1d")
+
+[connection signal="pressed" from="BoxInterface/FarmerButton" to="." method="_on_farmer_button_pressed"]
+[connection signal="pressed" from="BoxInterface/DefenderButton" to="." method="_on_defender_button_pressed"]
