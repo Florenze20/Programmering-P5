@@ -287,4 +287,4 @@ func get_closest_lane_index(mouse_y):
 func get_closest_column_index(mouse_x):
 	var column_index = int(round((mouse_x - grid_start_x) / cell_width))
 	column_index = clamp(column_index, 0, column_count - 1)
-	return column_index½
+	return column_index
