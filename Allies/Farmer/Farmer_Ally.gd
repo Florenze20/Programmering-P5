@@ -1,13 +1,13 @@
-extends Node
+extends BasicAlly
 
 
-var AllyMaxHp = 50
-var AllyHp = 50
-var AllyCost = 50
+
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	var AllyMaxHp = 50
+	var AllyHp = 50
+	var AllyCost = 50
 
 
 #There is currently no currency. This needs to add to the currency total.
