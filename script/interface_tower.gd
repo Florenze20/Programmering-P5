@@ -3,6 +3,7 @@ extends Node2D
 var time = 0
 var start_y = 0
 var mouse_on_interface = false
+var money = 100
 
 # Svæve animation til BoxInterface til towers
 func _ready():
