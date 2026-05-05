@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://so1r3mrjuv6g"
-path="res://.godot/imported/Take hit.png-b1b9f889b8101f7a17e006adb33855dc.ctex"
+uid="uid://doefi6jk4kl06"
+path="res://.godot/imported/stand_up_3.png-8d35337d2b8f1787645ace0ccbd04b9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Allies/Farmer/Take hit.png"
-dest_files=["res://.godot/imported/Take hit.png-b1b9f889b8101f7a17e006adb33855dc.ctex"]
+source_file="res://assets/pack_loreon_char_free/sword_1/stand_up_3.png"
+dest_files=["res://.godot/imported/stand_up_3.png-8d35337d2b8f1787645ace0ccbd04b9e.ctex"]
 
 [params]
 

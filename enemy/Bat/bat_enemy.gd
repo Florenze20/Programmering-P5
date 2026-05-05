@@ -1,4 +1,4 @@
-extends EnemyBasic 
+extends EnemyBasic
 
 func _ready():
 	super._ready()

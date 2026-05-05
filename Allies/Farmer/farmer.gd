@@ -15,8 +15,3 @@ func _ready():
 #Can alternatively be an ofshoot of "func shoot():" with another projectile
 func farm():
 	var money += 50
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

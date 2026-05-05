@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://80qf1mrsakio"
-path="res://.godot/imported/Idle.png-0592e9b2709c7a352647a745e4551e57.ctex"
+uid="uid://ukdfxvyv07y7"
+path="res://.godot/imported/attack1_4.png-ee4c18e2739b5bdfd8cef0632d4970fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Allies/Farmer/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-0592e9b2709c7a352647a745e4551e57.ctex"]
+source_file="res://assets/pack_loreon_char_free/sword_1/attack1_4.png"
+dest_files=["res://.godot/imported/attack1_4.png-ee4c18e2739b5bdfd8cef0632d4970fe.ctex"]
 
 [params]
 

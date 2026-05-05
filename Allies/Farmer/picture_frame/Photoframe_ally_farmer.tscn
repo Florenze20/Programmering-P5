@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bflv046je00kx"]
+
+[ext_resource type="Texture2D" uid="uid://dse5dh1s7ail7" path="res://assets/UI assets pack 2/UI books & more.png" id="1_qdh1q"]
+[ext_resource type="Texture2D" uid="uid://80qf1mrsakio" path="res://Allies/Farmer/Farmer animations/Idle.png" id="2_8uimy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edw2b"]
+atlas = ExtResource("1_qdh1q")
+region = Rect2(722.1686, 65.127075, 44.724182, 45.6511)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8iso"]
+atlas = ExtResource("2_8uimy")
+region = Rect2(0, 0, 258.91745, 250)
+
+[node name="PhotoframeAllyFarmer" type="Node2D" unique_id=961441809]
+
+[node name="Photoframe" type="TextureRect" parent="." unique_id=591399923]
+offset_right = 44.0
+offset_bottom = 45.0
+scale = Vector2(7.3377256, 6.6523523)
+texture = SubResource("AtlasTexture_edw2b")
+
+[node name="FarmerPhotoframe" type="TextureRect" parent="." unique_id=878246472]
+offset_left = -400.00006
+offset_top = -336.00003
+offset_right = -142.00006
+offset_bottom = -86.00003
+scale = Vector2(4.4885716, 3.4511955)
+texture = SubResource("AtlasTexture_e8iso")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1206591229]
+offset_left = 56.0
+offset_top = 232.0
+offset_right = 106.9521
+offset_bottom = 269.89746
+scale = Vector2(4.141084, 2.8002024)
+text = "  100"

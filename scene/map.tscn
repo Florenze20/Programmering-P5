@@ -1,23 +1,49 @@
 [gd_scene format=3 uid="uid://dhwdfy0sglbxp"]
 
 [ext_resource type="Script" uid="uid://b1y1f8run1oo6" path="res://script/map.gd" id="1_h0nt1"]
-[ext_resource type="Texture2D" uid="uid://v3yewhpsf453" path="res://texture/Card_Game_Lawn (1).webp" id="1_rgtto"]
+[ext_resource type="Texture2D" uid="uid://wwgxm4ambvuw" path="res://Allies/Farmer/picture_frame/PVZOL_Chinese_Far_Future_Lawn (1).webp" id="2_nf54y"]
 [ext_resource type="PackedScene" uid="uid://b5m2gyx0kg2v3" path="res://scene/interface tower.tscn" id="2_wpp1k"]
+[ext_resource type="PackedScene" uid="uid://bflv046je00kx" path="res://Allies/Farmer/picture_frame/Photoframe_ally_farmer.tscn" id="4_nf54y"]
+[ext_resource type="PackedScene" uid="uid://dc51bveyr3ccq" path="res://Allies/Defender/portrait/portraitDefender.tscn" id="5_4xw1d"]
 
 [node name="Map" type="Node2D" unique_id=2099491349]
 script = ExtResource("1_h0nt1")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1785793248]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=913320566]
+position = Vector2(744, 332.00003)
+scale = Vector2(1.474, 1.4733334)
+texture = ExtResource("2_nf54y")
 
-[node name="TowerMap" type="Sprite2D" parent="TextureRect" unique_id=1051337599]
-position = Vector2(703, 309.00003)
-scale = Vector2(1.6307442, 1.7623664)
-texture = ExtResource("1_rgtto")
+[node name="LaneMarkers" type="Node2D" parent="." unique_id=1549353810]
 
-[node name="BoxInterface" parent="." unique_id=1323542855 instance=ExtResource("2_wpp1k")]
-position = Vector2(12.000008, 113)
-scale = Vector2(2.0187407, 2.301744)
+[node name="Lane0" type="Marker2D" parent="LaneMarkers" unique_id=793684845]
+position = Vector2(1013, 158)
+
+[node name="Lane1" type="Marker2D" parent="LaneMarkers" unique_id=1320596241]
+position = Vector2(1018, 257)
+
+[node name="Lane2" type="Marker2D" parent="LaneMarkers" unique_id=1186534529]
+position = Vector2(1007, 350)
+
+[node name="Lane3" type="Marker2D" parent="LaneMarkers" unique_id=447564529]
+position = Vector2(1015, 452)
+
+[node name="Lane4" type="Marker2D" parent="LaneMarkers" unique_id=2091962586]
+position = Vector2(1015, 545)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=194383502]
+
+[node name="BoxInterface" parent="." unique_id=1323542855 instance=ExtResource("2_wpp1k")]
+position = Vector2(-5, 86)
+scale = Vector2(2.0187407, 2.301744)
+
+[node name="PhotoframeAllyFarmer" parent="BoxInterface" unique_id=961441809 instance=ExtResource("4_nf54y")]
+position = Vector2(16.346825, 12.16469)
+scale = Vector2(0.14061774, 0.12770537)
+
+[node name="PortraitDefender" parent="BoxInterface" unique_id=1013162076 instance=ExtResource("5_4xw1d")]
+offset_left = 68.35945
+offset_top = 11.295783
+offset_right = 68.35945
+offset_bottom = 11.295783
+scale = Vector2(0.14409754, 0.13226761)
