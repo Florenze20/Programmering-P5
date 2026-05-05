@@ -6,21 +6,19 @@
 [sub_resource type="GDScript" id="GDScript_8wtj6"]
 script/source = "extends BasicAlly
 
+# Farmer stats
+var farm_amount = 50
 
-#test
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
-	var AllyMaxHp = 50
-	var AllyHp = 50
-	var AllyCost = 50
+	AllyMaxHp = 50
+	AllyHp = 50
+	AllyCost = 50
 
-
-#There is currently no currency. This needs to add to the currency total.
-#Can alternatively be an ofshoot of \"func shoot():\" with another projectile
 func farm():
-	var money += 50
+	var map = get_tree().current_scene
+	map.money += farm_amount
+	map.update_money_text()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpj1t"]

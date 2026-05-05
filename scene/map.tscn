@@ -46,8 +46,6 @@ font_size = 35
 script = ExtResource("1_h0nt1")
 farmer_scene = ExtResource("2_jp76l")
 defender_scene = ExtResource("3_7ac5c")
-farmer_cost = null
-defender_cost = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913320566]
 position = Vector2(744, 332.00003)
