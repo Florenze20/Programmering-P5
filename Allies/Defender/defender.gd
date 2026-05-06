@@ -14,6 +14,7 @@ func _ready():
 	AllyMaxHp = 25
 	AllyHp = 25
 	AllyCost = 100
+	AllyDRFlat = 1
 	AllyBaseDamage = attack_damage
 	
 	if sprite.sprite_frames != null:

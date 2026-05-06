@@ -8,28 +8,21 @@ class_name BasicAlly
 
 # Bruges til at tjekke om ally allerede er i gang med hit animation
 var is_hurt = false
-
 # Maks HP og nuværende HP for ally
-var AllyMaxHp = 100
-var AllyHp = 100
-
+var AllyMaxHp = 50
+var AllyHp = 50
 # Hvor meget ally koster at placere
 var AllyCost = 100
-
 # Flat damage reduction
 # Et fast tal der bliver trukket fra skaden
 var AllyDRFlat = 0
-
 # Procent damage reduction
 # Reducerer skaden med en procent
 var AllyDRPercent = 0
-
 # Allyens grundskade når den angriber
 var AllyBaseDamage = 25
-
 # Hvilken lane ally står i, fx lane 0, 1, 2 osv.
 var lane_index := 0
-
 # Den præcise Y-position for den lane
 var lane_y := 0
 
@@ -37,7 +30,7 @@ var lane_y := 0
 # Funktion der bliver kaldt når ally tager skade
 func AllyLifeLoss(Amount):
 	# Udregner hvor meget skade ally faktisk tager
-	var damage_taken = (Amount) / (1 + AllyDRPercent / 100) - AllyDRFlat
+	var damage_taken = (Amount) * (1 - AllyDRPercent / 100) - AllyDRFlat
 	
 	# Sørger for at skaden ikke kan blive negativ
 	if damage_taken < 0:
@@ -94,7 +87,7 @@ func AllyDeath():
 	queue_free()
 
 
-# Funktion til allyens angreb
+# Funktion til ally's angreb
 # Kan senere bruges til projektiler eller andre angreb
 func AllyShoot():
 	pass
