@@ -74,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y8je7")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit_animation",
 "speed": 10.0
 }, {
@@ -115,6 +115,8 @@ size = Vector2(33.272728, 35.476192)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=782729057]
 scale = Vector2(6.2586145, 6.5794497)
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_bh2cr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2122151799]
@@ -123,7 +125,6 @@ scale = Vector2(0.34375, 0.328125)
 sprite_frames = SubResource("SpriteFrames_x4gdj")
 animation = &"running_animation"
 autoplay = "running_animation"
-frame_progress = 0.21270923
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1443375830]
 scale = Vector2(0.34375, 0.328125)

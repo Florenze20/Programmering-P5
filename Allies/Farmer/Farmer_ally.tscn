@@ -117,6 +117,8 @@ size = Vector2(39, 61)
 [node name="FarmerAlly" type="Node2D" unique_id=1610864653]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1945883932]
+position = Vector2(-16, -40.000004)
+scale = Vector2(1.9964099, 1.8060344)
 script = SubResource("GDScript_8wtj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=561102236]

@@ -39,7 +39,7 @@ var spawn_x = 1200
 var wave_number = 1
 
 # Hvor mange enemies der spawner i første wave
-var enemies_per_wave = 3
+var enemies_per_wave = 10
 
 # Hvor mange ekstra enemies der kommer per wave
 var enemies_added_each_wave = 2
@@ -126,25 +126,21 @@ func _ready():
 
 
 func update_money_text():
-	# Opdaterer penge teksten
 	if money_label != null:
 		money_label.text = "Money: " + str(money)
 
 
 func update_wave_text():
-	# Opdaterer wave teksten
 	if wave_label != null:
 		wave_label.text = "Wave: " + str(wave_number)
 
 
 func update_timer_text(seconds_left):
-	# Opdaterer timer teksten
 	if wave_timer_label != null:
 		wave_timer_label.text = "Next wave in: " + str(seconds_left)
 
 
 func start_waves():
-	# Kører waves hele tiden
 	while true:
 		update_wave_text()
 		
@@ -153,18 +149,15 @@ func start_waves():
 		
 		print("Wave ", wave_number, " starter")
 		
-		# Spawner enemies i denne wave
 		for i in range(enemies_per_wave):
 			spawn_enemy()
 			await get_tree().create_timer(spawn_delay).timeout
 		
 		print("Wave ", wave_number, " færdig")
 		
-		# Gør næste wave sværere
 		wave_number += 1
 		enemies_per_wave += enemies_added_each_wave
 		
-		# Countdown før næste wave
 		for seconds_left in range(time_between_waves, 0, -1):
 			update_timer_text(seconds_left)
 			await get_tree().create_timer(1.0).timeout
@@ -173,19 +166,15 @@ func start_waves():
 func spawn_enemy():
 	print("SPAWN ENEMY START")
 	
-	# Stopper hvis lanes ikke er loaded
 	if lanes.size() == 0:
 		print("Ingen lanes fundet")
 		return
 	
-	# Vælger random enemy
 	var enemy_scene = enemy_types.pick_random().instantiate()
 	
-	# Vælger random lane
 	var lane_index = randi_range(0, lanes.size() - 1)
 	var lane_y = lanes[lane_index]
 	
-	# Finder CharacterBody2D inde i enemy scenen
 	var enemy_body = enemy_scene.get_node_or_null("CharacterBody2D")
 	
 	if enemy_body == null:
@@ -196,28 +185,27 @@ func spawn_enemy():
 	enemy_body.lane_index = lane_index
 	enemy_body.lane_y = lane_y
 	
+	# Gør så defender kan finde enemies
+	enemy_body.add_to_group("enemies")
+	
 	# Root node styrer kun x-positionen
 	enemy_scene.position = Vector2(spawn_x, 0)
 	
-	# Finder Enemies node
 	var enemies_node = get_node_or_null("Enemies")
 	if enemies_node == null:
 		print("Enemies node mangler")
 		return
 	
-	# Tilføjer enemy til banen
 	enemies_node.add_child(enemy_scene)
 	
 	print("ENEMY ADDED")
 
 
 func _on_farmer_button_pressed():
-	# Stopper hvis farmer scene ikke er sat
 	if farmer_scene == null:
 		print("Farmer scene er ikke sat i Inspector")
 		return
 	
-	# Vælger farmer og sætter cost
 	selected_tower_scene = farmer_scene
 	selected_tower_cost = farmer_cost
 	
@@ -226,12 +214,10 @@ func _on_farmer_button_pressed():
 
 
 func _on_defender_button_pressed():
-	# Stopper hvis defender scene ikke er sat
 	if defender_scene == null:
 		print("Defender scene er ikke sat i Inspector")
 		return
 	
-	# Vælger defender og sætter cost
 	selected_tower_scene = defender_scene
 	selected_tower_cost = defender_cost
 	
@@ -240,17 +226,12 @@ func _on_defender_button_pressed():
 
 
 func _unhandled_input(event):
-	# Tjekker om man venstreklikker
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		
-		# Hvis der ikke er valgt et tower, sker der ingenting
 		if selected_tower_scene == null:
 			return
 		
-		# Finder musens position
 		var mouse_pos = get_global_mouse_position()
-		
-		# Prøver at placere tower
 		place_tower(mouse_pos)
 
 
@@ -266,21 +247,17 @@ func place_tower(mouse_pos):
 	# Key bruges til at se om feltet allerede er brugt
 	var tile_key = str(lane_index) + "_" + str(column_index)
 	
-	# Stopper hvis feltet allerede er optaget
 	if occupied_tiles.has(tile_key):
 		print("Der står allerede et tower her")
 		return
 	
-	# Debug til money system
 	print("Money: ", money)
 	print("Selected tower cost: ", selected_tower_cost)
 	
-	# Stopper hvis prisen ikke er sat
 	if selected_tower_cost <= 0:
 		print("Tower cost er ikke sat")
 		return
 	
-	# Stopper hvis man ikke har penge nok
 	if money < selected_tower_cost:
 		print("Ikke nok penge")
 		return
@@ -292,16 +269,19 @@ func place_tower(mouse_pos):
 	# Spawner det valgte tower
 	var tower = selected_tower_scene.instantiate()
 	
+	# Gemmer hvilken lane og hvilket felt tower står i
+	tower.set_meta("lane_index", lane_index)
+	tower.set_meta("lane_y", lane_y)
+	tower.set_meta("tile_key", tile_key)
+	
 	# Placerer toweret midt på feltet
 	tower.position = Vector2(column_x, lane_y)
 	
-	# Finder Allies node
 	var allies_node = get_node_or_null("Allies")
 	if allies_node == null:
 		print("Allies node mangler")
 		return
 	
-	# Tilføjer tower til banen
 	allies_node.add_child(tower)
 	
 	# Gemmer at feltet er brugt
@@ -316,7 +296,6 @@ func place_tower(mouse_pos):
 
 
 func get_closest_lane_index(mouse_y):
-	# Finder lane der er tættest på musen
 	var closest_index = 0
 	
 	for i in range(lanes.size()):
@@ -327,10 +306,6 @@ func get_closest_lane_index(mouse_y):
 
 
 func get_closest_column_index(mouse_x):
-	# Finder nærmeste kolonne
 	var column_index = int(round((mouse_x - grid_start_x) / cell_width))
-	
-	# Sørger for at man ikke kan placere udenfor kolonnerne
 	column_index = clamp(column_index, 0, column_count - 1)
-	
 	return column_index

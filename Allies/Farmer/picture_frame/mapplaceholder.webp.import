@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wwgxm4ambvuw"
-path="res://.godot/imported/PVZOL_Chinese_Far_Future_Lawn (1).webp-3bc1e81ae650d33f4ca9d3d1946c682f.ctex"
+path="res://.godot/imported/mapplaceholder.webp-6244523a820ba1cb9149c0eadcfc6aa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Allies/Farmer/picture_frame/PVZOL_Chinese_Far_Future_Lawn (1).webp"
-dest_files=["res://.godot/imported/PVZOL_Chinese_Far_Future_Lawn (1).webp-3bc1e81ae650d33f4ca9d3d1946c682f.ctex"]
+source_file="res://Allies/Farmer/picture_frame/mapplaceholder.webp"
+dest_files=["res://.godot/imported/mapplaceholder.webp-6244523a820ba1cb9149c0eadcfc6aa0.ctex"]
 
 [params]
 
