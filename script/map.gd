@@ -253,7 +253,7 @@ func spawn_enemy():
 	# Gør så defender kan finde enemies
 	enemy_body.add_to_group("enemies")
 	
-	# Root node styrer kun x-positionen
+	# Root node styrer kun x positionen
 	enemy_scene.position = Vector2(spawn_x, 0)
 	
 	var enemies_node = get_node_or_null("Enemies")

@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swo40"]
-size = Vector2(10.252314, 12.23884)
+size = Vector2(7.296295, 5.7592573)
 
 [node name="Bat" type="Node2D" unique_id=483261068]
 position = Vector2(32, 64.00001)
@@ -69,6 +69,6 @@ autoplay = "default"
 frame_progress = 0.9516249
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=227819746]
-position = Vector2(1.2325125, -1.2043848)
-scale = Vector2(2.031681, 1.3292485)
+position = Vector2(1.0588388, 0.76998234)
+scale = Vector2(2.031681, 1.3369484)
 shape = SubResource("RectangleShape2D_swo40")

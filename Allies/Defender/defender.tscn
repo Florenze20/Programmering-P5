@@ -244,10 +244,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itfir"]
-size = Vector2(23.54863, 27.692783)
+size = Vector2(17.9915, 34.020504)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6xbd"]
-size = Vector2(2.6685581, 30.899836)
+size = Vector2(21.450216, 6.780838)
 
 [node name="Defender" type="Node2D" unique_id=605924376]
 position = Vector2(-9, 0)
@@ -266,7 +266,7 @@ animation = &"idle_animation"
 autoplay = "idle_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1539811726]
-position = Vector2(0.77714825, -4.0222893)
+position = Vector2(3.1671388, -0.45481828)
 scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_itfir")
 
@@ -277,7 +277,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=863864861]
-position = Vector2(16.402214, -1.0541056)
-rotation = -2.8797934
-scale = Vector2(1, 1.0000001)
+position = Vector2(19.40262, -1.6865683)
+rotation = -1.5707964
+scale = Vector2(1.0509751, 2.890889)
 shape = SubResource("RectangleShape2D_g6xbd")

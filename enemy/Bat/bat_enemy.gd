@@ -3,5 +3,5 @@ extends EnemyBasic
 func _ready():
 	super._ready()
 	enemyHP = 15
-	EnemySpeed = 20
+	EnemySpeed = 100
 	EnemyDamage = 2
