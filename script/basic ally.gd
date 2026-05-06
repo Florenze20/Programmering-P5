@@ -2,6 +2,13 @@ extends Node2D
 
 class_name BasicAlly
 
+# Finder AnimatedSprite2D på allyen
+# Den bruges til at skifte mellem idle_animation og hit_animation
+@onready var sprite = get_node_or_null("CharacterBody2D/AnimatedSprite2D")
+
+# Bruges til at tjekke om ally allerede er i gang med hit animation
+var is_hurt = false
+
 # Maks HP og nuværende HP for ally
 var AllyMaxHp = 100
 var AllyHp = 100
@@ -10,11 +17,11 @@ var AllyHp = 100
 var AllyCost = 100
 
 # Flat damage reduction
-# Det betyder, at et fast tal bliver trukket fra skaden
+# Et fast tal der bliver trukket fra skaden
 var AllyDRFlat = 0
 
 # Procent damage reduction
-# Det betyder, at skaden bliver reduceret med en procent
+# Reducerer skaden med en procent
 var AllyDRPercent = 0
 
 # Allyens grundskade når den angriber
@@ -27,15 +34,59 @@ var lane_index := 0
 var lane_y := 0
 
 
-# Funktion til når ally tager skade
+# Funktion der bliver kaldt når ally tager skade
 func AllyLifeLoss(Amount):
-	# Først bliver skaden reduceret med procent
-	# Derefter bliver flat damage reduction trukket fra
-	AllyHp -= (Amount) / (1 + AllyDRPercent / 100) - AllyDRFlat
+	# Udregner hvor meget skade ally faktisk tager
+	var damage_taken = (Amount) / (1 + AllyDRPercent / 100) - AllyDRFlat
+	
+	# Sørger for at skaden ikke kan blive negativ
+	if damage_taken < 0:
+		damage_taken = 0
+	
+	# Trækker skaden fra allyens HP
+	AllyHp -= damage_taken
+	
+	print("Ally tog skade: ", damage_taken)
+	print("Ally HP: ", AllyHp)
+	
+	# Hvis ally stadig lever, spiller den hit animation
+	if AllyHp > 0:
+		play_hit_animation()
 	
 	# Hvis ally har 0 HP eller mindre, dør den
 	if AllyHp <= 0:
 		AllyDeath()
+
+
+# Funktion der spiller hit animation når ally tager skade
+func play_hit_animation():
+	# Stopper hvis ally allerede spiller hit animation
+	if is_hurt:
+		return
+	
+	# Stopper hvis der ikke findes en sprite
+	if sprite == null:
+		return
+	
+	# Sætter ally til at være i hurt-state
+	is_hurt = true
+	
+	# Sørger for at hit_animation ikke looper
+	if sprite.sprite_frames != null:
+		sprite.sprite_frames.set_animation_loop("hit_animation", false)
+	
+	# Spiller hit animationen
+	sprite.play("hit_animation")
+	
+	# Venter til hit animationen er færdig
+	await sprite.animation_finished
+	
+	# Går tilbage til idle animation bagefter
+	if is_hurt and sprite != null:
+		sprite.play("idle_animation")
+	
+	# Ally er ikke længere i hurt-state
+	is_hurt = false
 
 
 # Funktion til når ally dør
@@ -44,7 +95,7 @@ func AllyDeath():
 
 
 # Funktion til allyens angreb
-# Den kan senere bruges til at skyde projektiler
+# Kan senere bruges til projektiler eller andre angreb
 func AllyShoot():
 	pass
 

@@ -1,47 +1,90 @@
 extends EnemyBasic
 
-# Bruges til at tjekke om mushroom allerede er i gang med at angribe
+# Tjekker om mushroom allerede angriber
 var is_attacking = false
 
-# Finder AnimatedSprite2D, så vi kan skifte animationer
+# Tjekker om mushroom allerede spiller hit animation
+var is_hurt = false
+
+# Finder AnimatedSprite2D
 @onready var sprite = $AnimatedSprite2D
 
 
 func _ready():
 	super._ready()
 	
-	# Mushroom har mere liv, men er langsommere
+	# Mushroom stats
 	enemyHP = 60
 	EnemySpeed = 10
 	EnemyDamage = 2
 	
-	# Starter med running animation
-	sprite.play("running_animation")
+	# Mushroom går normalt med running animation
+	if sprite != null:
+		sprite.play("running_animation")
 
 
-func attack(enemy):
+# Denne funktion kører når mushroom angriber et tower
+func attack_ally(ally):
+	if is_attacking:
+		return
+	
+	is_attacking = true
 	can_attack = false
 	
-	print("Defender attacker")
+	print("Mushroom angriber tower")
 	
-	# Sørger for attack animation ikke looper
-	if sprite.sprite_frames != null:
-		sprite.sprite_frames.set_animation_loop("attack_animation", false)
+	# VIGTIGT:
+	# Mushroom spiller IKKE hit_animation her
+	# Fordi hit_animation betyder at mushroom selv tager skade
 	
-	# Spiller attack animation
-	sprite.play("attack_animation")
+	# Venter 1 sekund før mushroom laver damage
+	await get_tree().create_timer(1.0).timeout
 	
-	# Venter til det tidspunkt hvor slaget visuelt rammer
-	await get_tree().create_timer(hit_delay).timeout
+	# Hvis tower stadig findes, tager det skade
+	if ally != null and is_instance_valid(ally):
+		ally.AllyLifeLoss(EnemyDamage)
+		print("Mushroom lavede damage på tower")
 	
-	# Giver først skade her
-	if enemy != null and is_instance_valid(enemy):
-		if enemy.has_method("take_damage"):
-			enemy.take_damage(attack_damage)
-		else:
-			print("Enemy mangler take_damage")
-	
-	# Venter resten af cooldown
+	# Venter cooldown før mushroom kan angribe igen
 	await get_tree().create_timer(attack_cooldown).timeout
 	
 	can_attack = true
+	is_attacking = false
+	
+	# Går tilbage til running animation
+	if sprite != null and is_hurt == false:
+		sprite.play("running_animation")
+
+
+# Denne funktion kører når mushroom selv tager skade
+func take_damage(amount):
+	enemyHP -= amount
+	
+	print("Mushroom tog skade: ", amount)
+	print("Mushroom HP: ", enemyHP)
+	
+	if enemyHP <= 0:
+		die()
+		return
+	
+	play_hit_animation()
+
+
+# Mushroom spiller kun hit_animation når den selv tager skade
+func play_hit_animation():
+	if is_hurt:
+		return
+	
+	if sprite == null:
+		return
+	
+	is_hurt = true
+	
+	sprite.play("hit_animation")
+	
+	await sprite.animation_finished
+	
+	is_hurt = false
+	
+	if is_attacking == false:
+		sprite.play("running_animation")

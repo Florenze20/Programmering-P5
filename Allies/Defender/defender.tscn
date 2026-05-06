@@ -239,7 +239,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_irtiq")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_animation",
 "speed": 9.0
 }]
 
@@ -262,10 +262,8 @@ collision_mask = 2
 position = Vector2(1.9999994, -0.4999962)
 scale = Vector2(0.96875, 1.015625)
 sprite_frames = SubResource("SpriteFrames_ovnjf")
-animation = &"attack_animation"
-autoplay = "idle"
-frame = 12
-frame_progress = 1.0
+animation = &"idle_animation"
+autoplay = "idle_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1539811726]
 position = Vector2(0.77714825, 0.3638557)
@@ -273,6 +271,8 @@ scale = Vector2(1, 1.0000001)
 shape = SubResource("RectangleShape2D_itfir")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=233640546]
+position = Vector2(0, -12.734949)
+scale = Vector2(0.9713041, 1.7258974)
 collision_layer = 4
 collision_mask = 2
 

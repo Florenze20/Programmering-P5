@@ -48,7 +48,7 @@ var enemies_added_each_wave = 2
 var spawn_delay = 1.0
 
 # Pause mellem waves
-var time_between_waves = 60
+var time_between_waves = 10
 
 # UI labels
 var wave_label = null

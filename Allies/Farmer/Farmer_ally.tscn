@@ -1,25 +1,8 @@
 [gd_scene format=3 uid="uid://dyhl0oailyycq"]
 
 [ext_resource type="Texture2D" uid="uid://so1r3mrjuv6g" path="res://Allies/Farmer/Farmer animations/Take hit.png" id="1_8wtj6"]
+[ext_resource type="Script" uid="uid://rm5xlfykh402" path="res://Allies/Farmer/farmer_ally.gd" id="1_hw1mo"]
 [ext_resource type="Texture2D" uid="uid://80qf1mrsakio" path="res://Allies/Farmer/Farmer animations/Idle.png" id="2_hw1mo"]
-
-[sub_resource type="GDScript" id="GDScript_8wtj6"]
-script/source = "extends BasicAlly
-
-# Farmer stats
-var farm_amount = 50
-
-func _ready():
-	super._ready()
-	AllyMaxHp = 50
-	AllyHp = 50
-	AllyCost = 50
-
-func farm():
-	var map = get_tree().current_scene
-	map.money += farm_amount
-	map.update_money_text()
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpj1t"]
 atlas = ExtResource("1_8wtj6")
@@ -77,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sunb8")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit_animation",
 "speed": 4.0
 }, {
@@ -107,7 +90,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3fmui")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_animation",
 "speed": 13.0
 }]
 
@@ -115,17 +98,18 @@ animations = [{
 size = Vector2(39, 61)
 
 [node name="FarmerAlly" type="Node2D" unique_id=1610864653]
+script = ExtResource("1_hw1mo")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1945883932]
 position = Vector2(-16, -40.000004)
 scale = Vector2(1.9964099, 1.8060344)
-script = SubResource("GDScript_8wtj6")
+collision_layer = 4
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=561102236]
 sprite_frames = SubResource("SpriteFrames_qgino")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.96472937
+animation = &"hit_animation"
+autoplay = "idle_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=423454549]
 position = Vector2(0.5, 15.5)

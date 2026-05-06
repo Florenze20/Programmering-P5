@@ -1,11 +1,11 @@
 extends BasicAlly
 
 var attack_damage = 15
-var attack_cooldown = 2.0
+var attack_cooldown = 1.1
+var hit_delay = 0.3
 var can_attack = true
 var is_dead = false
 
-@onready var sprite = $CharacterBody2D/AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
 
@@ -15,7 +15,13 @@ func _ready():
 	AllyHp = 25
 	AllyCost = 100
 	AllyBaseDamage = attack_damage
-	var hit_delay = 0.4
+	
+	if sprite.sprite_frames != null:
+		sprite.sprite_frames.set_animation_loop("idle_animation", true)
+		sprite.sprite_frames.set_animation_loop("attack_animation", false)
+		sprite.sprite_frames.set_animation_loop("death_animation", false)
+	
+	sprite.play("idle_animation")
 
 
 func _process(delta):
@@ -44,17 +50,30 @@ func attack(enemy):
 	
 	print("Defender attacker")
 	
+	# Spiller attack animation
 	sprite.play("attack_animation")
 	
-	if enemy.has_method("take_damage"):
-		enemy.take_damage(attack_damage)
-	else:
-		print("Enemy mangler take_damage")
+	# Venter til slaget rammer
+	await get_tree().create_timer(hit_delay).timeout
 	
+	# Giver damage
+	if enemy != null and is_instance_valid(enemy):
+		if enemy.has_method("take_damage"):
+			enemy.take_damage(attack_damage)
+		else:
+			print("Enemy mangler take_damage")
+	
+	# Venter lidt så attack animationen kan nå at blive vist
+	await get_tree().create_timer(0.4).timeout
+	
+	# Går tilbage til idle animation
+	if is_dead == false:
+		sprite.play("idle_animation")
+	
+	# Venter cooldown før næste attack
 	await get_tree().create_timer(attack_cooldown).timeout
 	
 	can_attack = true
-
 
 func AllyDeath():
 	if is_dead:
@@ -65,25 +84,14 @@ func AllyDeath():
 	
 	print("Defender døde")
 	
-	# Gør feltet ledigt igen, så man kan placere et nyt tower
 	var tile_key = get_meta("tile_key", "")
 	var map = get_tree().current_scene
 	
 	if tile_key != "" and map != null:
 		map.occupied_tiles.erase(tile_key)
 	
-	# Slår collision fra, så enemies ikke bliver ved med at ramme den
-	$CharacterBody2D/CollisionShape2D.disabled = true
-	
-	# Sørger for at death animation ikke looper
-	if sprite.sprite_frames != null:
-		sprite.sprite_frames.set_animation_loop("death_animation", false)
-	
-	# Spiller death animation én gang
+	# Death spiller kun én gang
 	sprite.play("death_animation")
-	
-	# Venter til animationen er færdig
 	await sprite.animation_finished
 	
-	# Fjerner defenderen
 	queue_free()
