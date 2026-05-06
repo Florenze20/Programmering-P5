@@ -40,11 +40,11 @@ offset_bottom = 290.0
 scale = Vector2(0.97157806, 0.85058355)
 texture = SubResource("AtlasTexture_xnncc")
 
-[node name="TextEdit" type="TextEdit" parent="TextureRect" unique_id=475418625]
+[node name="TextEdit" type="Label" parent="TextureRect" unique_id=902737676]
 layout_mode = 0
-offset_left = 80.00001
-offset_top = 240.00002
-offset_right = 118.39576
+offset_left = 96.00001
+offset_top = 240.0
+offset_right = 134.39575
 offset_bottom = 277.89746
 scale = Vector2(4.141084, 2.8002024)
 text = "100"

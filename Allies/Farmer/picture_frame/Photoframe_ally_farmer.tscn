@@ -27,10 +27,10 @@ offset_bottom = -86.00003
 scale = Vector2(4.4885716, 3.4511955)
 texture = SubResource("AtlasTexture_e8iso")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1206591229]
-offset_left = 104.0
+[node name="TextEdit" type="Label" parent="." unique_id=1772133597]
+offset_left = 120.0
 offset_top = 240.00002
-offset_right = 131.04605
+offset_right = 147.04605
 offset_bottom = 277.89746
 scale = Vector2(4.141084, 2.8002024)
 text = "50"

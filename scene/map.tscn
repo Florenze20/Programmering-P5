@@ -85,17 +85,20 @@ offset_bottom = -9.452896
 scale = Vector2(1.4079041, 1.2465811)
 text = "Money: 0"
 label_settings = SubResource("LabelSettings_jp76l")
+metadata/_edit_lock_ = true
 
 [node name="PhotoframeAllyFarmer" parent="BoxInterface" unique_id=961441809 instance=ExtResource("4_nf54y")]
 position = Vector2(16.346825, 12.16469)
 scale = Vector2(0.14061774, 0.12770537)
+metadata/_edit_lock_ = true
 
 [node name="PortraitDefender" parent="BoxInterface" unique_id=1013162076 instance=ExtResource("5_4xw1d")]
-offset_left = 68.35945
-offset_top = 11.295783
-offset_right = 68.35945
-offset_bottom = 11.295783
+offset_left = 69.84553
+offset_top = 11.730236
+offset_right = 69.84553
+offset_bottom = 11.730236
 scale = Vector2(0.14409754, 0.13226761)
+metadata/_edit_lock_ = true
 
 [node name="FarmerButton" type="Button" parent="BoxInterface" unique_id=669929496]
 offset_left = 25.263275
@@ -121,6 +124,23 @@ offset_bottom = 68.0
 scale = Vector2(1.23661, 1.2783294)
 text = "Wave: 1"
 label_settings = SubResource("LabelSettings_4xw1d")
+
+[node name="LivesLabel" type="Label" parent="." unique_id=2103453284]
+offset_left = 352.00003
+offset_top = 16.000002
+offset_right = 409.00003
+offset_bottom = 39.0
+scale = Vector2(2.5231912, 2.2119298)
+text = "Lives: 0"
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1223974872]
+visible = false
+offset_left = 464.0
+offset_top = 328.0
+offset_right = 551.0
+offset_bottom = 351.0
+scale = Vector2(4.1426105, 3.1260529)
+text = "Game Over"
 
 [connection signal="pressed" from="BoxInterface/FarmerButton" to="." method="_on_farmer_button_pressed"]
 [connection signal="pressed" from="BoxInterface/DefenderButton" to="." method="_on_defender_button_pressed"]

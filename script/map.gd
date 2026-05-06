@@ -8,6 +8,19 @@ extends Node2D
 @export var farmer_cost: int = 50
 @export var defender_cost: int = 100
 
+# Hvor mange liv spilleren starter med
+var lives = 3
+
+# Når en enemy kommer længere til venstre end denne X-position, mister spilleren 1 liv
+var lose_x = 150
+
+# Bruges til at stoppe spillet, når spilleren har tabt
+var game_over = false
+
+# Labels til liv og game over
+var lives_label = null
+var game_over_label = null
+
 # Det tower spilleren har valgt
 var selected_tower_scene: PackedScene = null
 
@@ -86,6 +99,20 @@ func _ready():
 	wave_timer_label = get_node_or_null("WaveTimerLabel")
 	money_label = get_node_or_null("BoxInterface/MoneyLabel")
 	
+	# Finder LivesLabel direkte under Map
+	lives_label = get_node_or_null("LivesLabel")
+	
+	# Hvis den ikke ligger direkte under Map, prøver den inde i BoxInterface
+	if lives_label == null:
+		lives_label = get_node_or_null("BoxInterface/LivesLabel")
+	
+	# Finder GameOverLabel direkte under Map
+	game_over_label = get_node_or_null("GameOverLabel")
+	
+	# Hvis den ikke ligger direkte under Map, prøver den inde i BoxInterface
+	if game_over_label == null:
+		game_over_label = get_node_or_null("BoxInterface/GameOverLabel")
+	
 	if wave_label == null:
 		print("WaveLabel mangler")
 	
@@ -95,8 +122,18 @@ func _ready():
 	if money_label == null:
 		print("MoneyLabel mangler")
 	
-	# Viser penge fra start
+	if lives_label == null:
+		print("LivesLabel mangler")
+	
+	if game_over_label == null:
+		print("GameOverLabel mangler")
+	else:
+		# Game over teksten skal være skjult fra start
+		game_over_label.visible = false
+	
+	# Viser penge og liv fra start
 	update_money_text()
+	update_lives_text()
 	
 	# Finder lane markers
 	var lane0 = get_node_or_null("LaneMarkers/Lane0")
@@ -125,9 +162,23 @@ func _ready():
 	start_waves()
 
 
+func _process(delta):
+	# Stopper tjekket hvis spillet er tabt
+	if game_over:
+		return
+	
+	# Tjekker om enemies er kommet igennem
+	check_enemies_reached_end()
+
+
 func update_money_text():
 	if money_label != null:
 		money_label.text = "Money: " + str(money)
+
+
+func update_lives_text():
+	if lives_label != null:
+		lives_label.text = "Lives: " + str(lives)
 
 
 func update_wave_text():
@@ -141,7 +192,8 @@ func update_timer_text(seconds_left):
 
 
 func start_waves():
-	while true:
+	# Kører waves indtil game over
+	while game_over == false:
 		update_wave_text()
 		
 		if wave_timer_label != null:
@@ -149,21 +201,34 @@ func start_waves():
 		
 		print("Wave ", wave_number, " starter")
 		
+		# Spawner enemies i denne wave
 		for i in range(enemies_per_wave):
+			if game_over:
+				return
+			
 			spawn_enemy()
 			await get_tree().create_timer(spawn_delay).timeout
 		
 		print("Wave ", wave_number, " færdig")
 		
+		# Gør næste wave sværere
 		wave_number += 1
 		enemies_per_wave += enemies_added_each_wave
 		
+		# Countdown før næste wave
 		for seconds_left in range(time_between_waves, 0, -1):
+			if game_over:
+				return
+			
 			update_timer_text(seconds_left)
 			await get_tree().create_timer(1.0).timeout
 
 
 func spawn_enemy():
+	# Stopper hvis spillet er tabt
+	if game_over:
+		return
+	
 	print("SPAWN ENEMY START")
 	
 	if lanes.size() == 0:
@@ -201,7 +266,61 @@ func spawn_enemy():
 	print("ENEMY ADDED")
 
 
+func check_enemies_reached_end():
+	var enemies_node = get_node_or_null("Enemies")
+	
+	if enemies_node == null:
+		return
+	
+	# Går igennem alle enemies på banen
+	for enemy_scene in enemies_node.get_children():
+		var enemy_body = enemy_scene.get_node_or_null("CharacterBody2D")
+		
+		if enemy_body == null:
+			continue
+		
+		# Hvis enemy er kommet for langt til venstre, mister spilleren 1 liv
+		if enemy_body.global_position.x <= lose_x:
+			enemy_scene.queue_free()
+			lose_life()
+
+
+func lose_life():
+	lives -= 1
+	update_lives_text()
+	
+	print("Mistede 1 liv. Liv tilbage: ", lives)
+	
+	if lives <= 0:
+		game_over_screen()
+
+
+func game_over_screen():
+	game_over = true
+	
+	print("GAME OVER")
+	
+	# Viser game over tekst
+	if game_over_label != null:
+		game_over_label.visible = true
+		game_over_label.text = "GAME OVER"
+	
+	# Stopper timer-teksten
+	if wave_timer_label != null:
+		wave_timer_label.text = "Game Over"
+	
+	# Fjerner alle enemies, så de ikke fortsætter efter game over
+	var enemies_node = get_node_or_null("Enemies")
+	
+	if enemies_node != null:
+		for enemy in enemies_node.get_children():
+			enemy.queue_free()
+
+
 func _on_farmer_button_pressed():
+	if game_over:
+		return
+	
 	if farmer_scene == null:
 		print("Farmer scene er ikke sat i Inspector")
 		return
@@ -214,6 +333,9 @@ func _on_farmer_button_pressed():
 
 
 func _on_defender_button_pressed():
+	if game_over:
+		return
+	
 	if defender_scene == null:
 		print("Defender scene er ikke sat i Inspector")
 		return
@@ -226,6 +348,10 @@ func _on_defender_button_pressed():
 
 
 func _unhandled_input(event):
+	# Man kan ikke placere towers efter game over
+	if game_over:
+		return
+	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		
 		if selected_tower_scene == null:
