@@ -419,7 +419,7 @@ func place_tower(mouse_pos):
 	# Nulstiller valgt tower
 	selected_tower_scene = null
 	selected_tower_cost = 0
-
+#test
 
 func get_closest_lane_index(mouse_y):
 	var closest_index = 0
