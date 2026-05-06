@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dc51bveyr3ccq"]
+
+[ext_resource type="Texture2D" uid="uid://dse5dh1s7ail7" path="res://assets/UI assets pack 2/UI books & more.png" id="1_tqg1p"]
+[ext_resource type="Texture2D" uid="uid://d3yyj277fdski" path="res://Allies/Defender/defender animation/Skeleton enemy.png" id="2_oqo3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txj45"]
+atlas = ExtResource("1_tqg1p")
+region = Rect2(722.1686, 65.127075, 44.724182, 45.6511)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnncc"]
+atlas = ExtResource("2_oqo3d")
+region = Rect2(197.6188, 204.57413, 49.176956, 40.73242)
+
+[node name="PortraitDefender" type="Control" unique_id=1013162076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=542684901]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Photoframe" type="TextureRect" parent="TextureRect" unique_id=1593417343]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 45.0
+scale = Vector2(7.3377256, 6.6523523)
+texture = SubResource("AtlasTexture_txj45")
+
+[node name="FarmerPhotoframe" type="TextureRect" parent="TextureRect" unique_id=414883064]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 298.0
+offset_bottom = 290.0
+scale = Vector2(0.97157806, 0.85058355)
+texture = SubResource("AtlasTexture_xnncc")
+
+[node name="TextEdit" type="TextEdit" parent="TextureRect" unique_id=475418625]
+layout_mode = 0
+offset_left = 80.00001
+offset_top = 240.00002
+offset_right = 118.39576
+offset_bottom = 277.89746
+scale = Vector2(4.141084, 2.8002024)
+text = "100"

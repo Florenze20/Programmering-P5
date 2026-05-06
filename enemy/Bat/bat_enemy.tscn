@@ -47,24 +47,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swo40"]
+size = Vector2(10.252314, 12.23884)
 
 [node name="Bat" type="Node2D" unique_id=483261068]
-position = Vector2(568, 320)
+position = Vector2(32, 64.00001)
 scale = Vector2(0.3168, 0.40414408)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1368108155]
-position = Vector2(2, 0)
+position = Vector2(25.252525, 39.58983)
 scale = Vector2(11.92463, 12.854131)
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_2fuok")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=867630878]
-position = Vector2(0, -8)
+position = Vector2(0.5294194, -3.8499165)
 rotation = -3.1415925
-scale = Vector2(1, 0.8106125)
+scale = Vector2(1.1219516, 0.8941636)
 sprite_frames = SubResource("SpriteFrames_pqa53")
 autoplay = "default"
 frame_progress = 0.9516249
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=227819746]
-position = Vector2(0, -5)
+position = Vector2(1.2325125, -1.2043848)
+scale = Vector2(2.031681, 1.3292485)
 shape = SubResource("RectangleShape2D_swo40")

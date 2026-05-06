@@ -1,50 +1,111 @@
-extends Node
+extends Node2D
 
 class_name BasicAlly
 
-# Ally Max hp and current hp respectively
+# Finder AnimatedSprite2D på allyen
+# Den bruges til at skifte mellem idle_animation og hit_animation
+@onready var sprite = get_node_or_null("CharacterBody2D/AnimatedSprite2D")
+
+# Bruges til at tjekke om ally allerede er i gang med hit animation
+var is_hurt = false
+
+# Maks HP og nuværende HP for ally
 var AllyMaxHp = 100
 var AllyHp = 100
-var AllyCost = 100
-#AllyDRFlat is the flat amount an amount of damage is reduced by, happens after the percent.
-var AllyDRFlat = 0
-#AllyDRPercent is the percentage amount an amount of damage is reduced by, happens before the flat reduction.
-var AllyDRPercent = 0
-#The base damage an ally unit does with its attacks.
-var AllyBaseDamage= 25
 
-# Hvilken lane enemy er i fx lane 0, 1, 2 osv.
+# Hvor meget ally koster at placere
+var AllyCost = 100
+
+# Flat damage reduction
+# Et fast tal der bliver trukket fra skaden
+var AllyDRFlat = 0
+
+# Procent damage reduction
+# Reducerer skaden med en procent
+var AllyDRPercent = 0
+
+# Allyens grundskade når den angriber
+var AllyBaseDamage = 25
+
+# Hvilken lane ally står i, fx lane 0, 1, 2 osv.
 var lane_index := 0
 
 # Den præcise Y-position for den lane
 var lane_y := 0
 
 
-#Damage taking function, replace AllyBaseDamage with a enemy damage variable or constant
+# Funktion der bliver kaldt når ally tager skade
 func AllyLifeLoss(Amount):
-	#Ally Damage reduction formula is as follows:
-	#AllyBaseDamage-AllyDRFlat is the damage dealt, minus a flat damage amount.
-	#1+AllyDRPercent/100 is 1 plus the ally damage reduction percent in percent
-	AllyHp -= (Amount)/(1+AllyDRPercent/100)-AllyDRFlat
-	if AllyHp <= 0: 	
+	# Udregner hvor meget skade ally faktisk tager
+	var damage_taken = (Amount) / (1 + AllyDRPercent / 100) - AllyDRFlat
+	
+	# Sørger for at skaden ikke kan blive negativ
+	if damage_taken < 0:
+		damage_taken = 0
+	
+	# Trækker skaden fra allyens HP
+	AllyHp -= damage_taken
+	
+	print("Ally tog skade: ", damage_taken)
+	print("Ally HP: ", AllyHp)
+	
+	# Hvis ally stadig lever, spiller den hit animation
+	if AllyHp > 0:
+		play_hit_animation()
+	
+	# Hvis ally har 0 HP eller mindre, dør den
+	if AllyHp <= 0:
 		AllyDeath()
 
-#The ally dies.
-func AllyDeath():
-	queue_free
 
-#Implement a shooting function, needs to fire a moving projectile
-#Needs to be able to hit enemies and deal damage.
+# Funktion der spiller hit animation når ally tager skade
+func play_hit_animation():
+	# Stopper hvis ally allerede spiller hit animation
+	if is_hurt:
+		return
+	
+	# Stopper hvis der ikke findes en sprite
+	if sprite == null:
+		return
+	
+	# Sætter ally til at være i hurt-state
+	is_hurt = true
+	
+	# Sørger for at hit_animation ikke looper
+	if sprite.sprite_frames != null:
+		sprite.sprite_frames.set_animation_loop("hit_animation", false)
+	
+	# Spiller hit animationen
+	sprite.play("hit_animation")
+	
+	# Venter til hit animationen er færdig
+	await sprite.animation_finished
+	
+	# Går tilbage til idle animation bagefter
+	if is_hurt and sprite != null:
+		sprite.play("idle_animation")
+	
+	# Ally er ikke længere i hurt-state
+	is_hurt = false
+
+
+# Funktion til når ally dør
+func AllyDeath():
+	queue_free()
+
+
+# Funktion til allyens angreb
+# Kan senere bruges til projektiler eller andre angreb
 func AllyShoot():
 	pass
 
 
-# Called when the node enters the scene tree for the first time.
+# Kaldes når noden kommer ind i scenen
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Kaldes hvert frame
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
