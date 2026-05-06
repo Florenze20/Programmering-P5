@@ -1,21 +1,21 @@
 extends BasicAlly
 
+
+@onready var attack_area = $AttackArea
 var attack_damage = 15
 var attack_cooldown = 1.1
 var hit_delay = 0.3
 var can_attack = true
 var is_dead = false
 
-@onready var attack_area = $AttackArea
-
 
 func _ready():
 	super._ready()
-	AllyMaxHp = 25
-	AllyHp = 25
+	AllyMaxHp = 50
+	AllyHp = 50
 	AllyCost = 100
 	AllyDRFlat = 1
-	AllyBaseDamage = attack_damage
+	
 	
 	if sprite.sprite_frames != null:
 		sprite.sprite_frames.set_animation_loop("idle_animation", true)

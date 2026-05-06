@@ -10,7 +10,7 @@ class_name BasicAlly
 var is_hurt = false
 # Maks HP og nuværende HP for ally
 var AllyMaxHp = 50
-var AllyHp = 50
+var AllyHp = AllyMaxHp
 # Hvor meget ally koster at placere
 var AllyCost = 100
 # Flat damage reduction
@@ -25,6 +25,7 @@ var AllyBaseDamage = 25
 var lane_index := 0
 # Den præcise Y-position for den lane
 var lane_y := 0
+#
 
 
 # Funktion der bliver kaldt når ally tager skade
