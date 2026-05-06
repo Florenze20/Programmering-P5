@@ -2,7 +2,8 @@ extends CharacterBody2D
 class_name EnemyBasic
 
 # Enemyhp er hvor meget liv de har
-var enemyHP = 25
+var enemyMaxHp = 25
+var enemyHP = enemyMaxHp
 
 # Hvor stærk modstanderen er
 var enemyTier = 0
@@ -91,7 +92,12 @@ func take_damage(amount):
 
 func die():
 	print("Enemy døde")
+	var map = get_tree().current_scene
 	
+	# Tilføjer score til map.gd
+	if map != null:
+		map.score += enemyHP
+		map.update_score_text()
 	var root = get_parent()
 	
 	if root != null and root.name != "Enemies":
