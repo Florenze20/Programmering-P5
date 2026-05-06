@@ -1,8 +1,5 @@
 extends BasicAlly
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
@@ -14,7 +11,7 @@ func _ready():
 #There is currently no currency. This needs to add to the currency total.
 #Can alternatively be an ofshoot of "func shoot():" with another projectile
 func farm():
-	var money += 50
+	var money =+ 50
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
