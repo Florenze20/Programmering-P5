@@ -15,13 +15,9 @@ func _ready():
 	
 	# Mushroom stats
 	enemyHP = 60
-<<<<<<< HEAD
-	EnemySpeed = 50
-	EnemyDamage = 2
-=======
 	EnemySpeed = 10
 	EnemyDamage = 4
->>>>>>> e9cbe8d518b4ca0287858f63a22ed02a9921dd99
+
 	
 	# Mushroom går normalt med running animation
 	if sprite != null:
