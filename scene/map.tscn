@@ -45,6 +45,9 @@ font_size = 35
 [sub_resource type="LabelSettings" id="LabelSettings_7ac5c"]
 font_size = 20
 
+[sub_resource type="LabelSettings" id="LabelSettings_8qxkh"]
+font_size = 31
+
 [node name="Map" type="Node2D" unique_id=2099491349]
 script = ExtResource("1_h0nt1")
 farmer_scene = ExtResource("2_jp76l")
@@ -116,19 +119,19 @@ scale = Vector2(3.365511, 2.835216)
 script = SubResource("GDScript_bq37x")
 
 [node name="WaveLabel" type="Label" parent="." unique_id=1747389238]
-offset_left = 811.0
-offset_top = 19.000004
-offset_right = 942.0
-offset_bottom = 68.0
+offset_left = 880.0
+offset_top = 15.0
+offset_right = 1011.0
+offset_bottom = 64.0
 scale = Vector2(1.23661, 1.2783294)
 text = "Wave: 1"
 label_settings = SubResource("LabelSettings_4xw1d")
 
 [node name="LivesLabel" type="Label" parent="." unique_id=2103453284]
-offset_left = 352.00003
-offset_top = 16.000002
-offset_right = 409.00003
-offset_bottom = 39.0
+offset_left = 376.0
+offset_top = 24.0
+offset_right = 433.0
+offset_bottom = 47.0
 scale = Vector2(2.5231912, 2.2119298)
 text = "Lives: 0"
 
@@ -141,6 +144,14 @@ offset_bottom = 324.0
 scale = Vector2(4.1426105, 3.1260529)
 text = "Game Over"
 label_settings = SubResource("LabelSettings_7ac5c")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1032755277]
+offset_left = 608.0
+offset_top = 24.0
+offset_right = 776.0
+offset_bottom = 68.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_8qxkh")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=194383502]
 
