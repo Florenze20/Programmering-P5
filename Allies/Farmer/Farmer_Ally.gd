@@ -2,13 +2,10 @@ extends BasicAlly
 
 # Hvor mange penge farmer giver
 var farm_amount = 50
-
 # Hvor lang tid der går mellem hver gang farmer giver penge
 var farm_cooldown = 24.0
-
 # Bruges til at stoppe farmeren hvis den dør
 var is_dead = false
-
 
 func _ready():
 	super._ready()
