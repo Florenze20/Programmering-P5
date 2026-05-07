@@ -14,11 +14,13 @@ func _ready():
 	super._ready()
 	
 	# Mushroom stats
-	var enemyHp = 60
-	var EnemySpeed = 10
-	var EnemyDamage = 4
+	enemyHP = 60
+	EnemySpeed = 10
+	EnemyDamage = 2
 	
-	# Mushroom går normalt med running animation
+	# Mushroom giver 50 point
+	score_value = 50
+	
 	if sprite != null:
 		sprite.play("running_animation")
 

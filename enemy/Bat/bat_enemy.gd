@@ -4,7 +4,9 @@ func _ready():
 	super._ready()
 	
 	# Bat stats
-	enemyHP = 15
+	enemyHP = 20
 	EnemySpeed = 100
 	EnemyDamage = 2
-	score_value = 10
+	
+	# Bat giver 20 point
+	score_value = 20

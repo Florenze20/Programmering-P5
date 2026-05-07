@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo26n18uqpjkf"
-path="res://.godot/imported/Mushroom-Run.png-73b70d698b67e8f82485d2aa162d888b.ctex"
+uid="uid://df7mdfdlc06ka"
+path="res://.godot/imported/Burst of ice.png-d30d7bd3741b1e061e2d955a5b4f389c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png"
-dest_files=["res://.godot/imported/Mushroom-Run.png-73b70d698b67e8f82485d2aa162d888b.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Ice/Burst of ice.png"
+dest_files=["res://.godot/imported/Burst of ice.png-d30d7bd3741b1e061e2d955a5b4f389c.ctex"]
 
 [params]
 

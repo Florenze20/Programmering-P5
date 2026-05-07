@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7vs2m0ks0bid"
-path="res://.godot/imported/Mushroom-Idle.png-90093f0f0806703c93a05b0a58699ad8.ctex"
+uid="uid://c4pwdsp2dlpo4"
+path="res://.godot/imported/Burn.png-a10e54ad1ab9ae21a7d142a0c4d2a1e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom without VFX/Mushroom-Idle.png"
-dest_files=["res://.godot/imported/Mushroom-Idle.png-90093f0f0806703c93a05b0a58699ad8.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Fire/Burn.png"
+dest_files=["res://.godot/imported/Burn.png-a10e54ad1ab9ae21a7d142a0c4d2a1e2.ctex"]
 
 [params]
 

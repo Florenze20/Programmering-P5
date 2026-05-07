@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://wwgxm4ambvuw" path="res://Allies/Farmer/picture_frame/mapplaceholder.webp" id="2_nf54y"]
 [ext_resource type="PackedScene" uid="uid://b5m2gyx0kg2v3" path="res://scene/interface tower.tscn" id="2_wpp1k"]
 [ext_resource type="PackedScene" uid="uid://bxfn1im6gpi7k" path="res://Allies/Defender/defender.tscn" id="3_7ac5c"]
+[ext_resource type="PackedScene" uid="uid://l8r2bso5kl28" path="res://Allies/Gunner/gunner_Ally.tscn" id="4_8qxkh"]
 [ext_resource type="PackedScene" uid="uid://bflv046je00kx" path="res://Allies/Farmer/picture_frame/Photoframe_ally_farmer.tscn" id="4_nf54y"]
 [ext_resource type="PackedScene" uid="uid://dc51bveyr3ccq" path="res://Allies/Defender/portrait/portraitDefender.tscn" id="5_4xw1d"]
+[ext_resource type="PackedScene" uid="uid://dglghhrs7a3jb" path="res://Allies/Gunner/portrait/PortraitGunner.tscn" id="8_7ac5c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jp76l"]
 font_size = 17
@@ -52,6 +54,7 @@ font_size = 31
 script = ExtResource("1_h0nt1")
 farmer_scene = ExtResource("2_jp76l")
 defender_scene = ExtResource("3_7ac5c")
+gunner_scene = ExtResource("4_8qxkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=913320566]
 position = Vector2(744, 332.00003)
@@ -92,7 +95,6 @@ metadata/_edit_lock_ = true
 [node name="PhotoframeAllyFarmer" parent="BoxInterface" unique_id=961441809 instance=ExtResource("4_nf54y")]
 position = Vector2(16.346825, 12.16469)
 scale = Vector2(0.14061774, 0.12770537)
-metadata/_edit_lock_ = true
 
 [node name="PortraitDefender" parent="BoxInterface" unique_id=1013162076 instance=ExtResource("5_4xw1d")]
 offset_left = 69.84553
@@ -117,6 +119,21 @@ offset_right = 86.266624
 offset_bottom = 26.681488
 scale = Vector2(3.365511, 2.835216)
 script = SubResource("GDScript_bq37x")
+
+[node name="PortraitGunner" parent="BoxInterface" unique_id=16709946 instance=ExtResource("8_7ac5c")]
+offset_left = 16.346825
+offset_top = 51.265472
+offset_right = 16.346825
+offset_bottom = 51.265472
+scale = Vector2(0.14093402, 0.12310657)
+metadata/_edit_lock_ = true
+
+[node name="GunnerButton" type="Button" parent="BoxInterface" unique_id=1577276860]
+offset_left = 26.253992
+offset_top = 59.95454
+offset_right = 34.25399
+offset_bottom = 67.954544
+scale = Vector2(2.6625674, 2.5286555)
 
 [node name="WaveLabel" type="Label" parent="." unique_id=1747389238]
 offset_left = 880.0
@@ -159,3 +176,4 @@ label_settings = SubResource("LabelSettings_8qxkh")
 
 [connection signal="pressed" from="BoxInterface/FarmerButton" to="." method="_on_farmer_button_pressed"]
 [connection signal="pressed" from="BoxInterface/DefenderButton" to="." method="_on_defender_button_pressed"]
+[connection signal="pressed" from="BoxInterface/GunnerButton" to="." method="_on_gunner_button_pressed"]

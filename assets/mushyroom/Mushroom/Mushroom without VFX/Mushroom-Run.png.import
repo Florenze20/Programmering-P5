@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cug2mtgk72w7p"
-path="res://.godot/imported/Mushroom-Idle.png-1270220dbbdc9c0fc47fbbb70145e641.ctex"
+uid="uid://r2jdp13nclo3"
+path="res://.godot/imported/Mushroom-Run.png-62325ff6c97779945d87e2b60d3f60ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Idle.png"
-dest_files=["res://.godot/imported/Mushroom-Idle.png-1270220dbbdc9c0fc47fbbb70145e641.ctex"]
+source_file="res://assets/mushyroom/Mushroom/Mushroom without VFX/Mushroom-Run.png"
+dest_files=["res://.godot/imported/Mushroom-Run.png-62325ff6c97779945d87e2b60d3f60ca.ctex"]
 
 [params]
 

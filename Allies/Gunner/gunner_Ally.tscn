@@ -1,7 +1,95 @@
 [gd_scene format=3 uid="uid://l8r2bso5kl28"]
 
+[ext_resource type="Script" uid="uid://b6drepfn5vg4y" path="res://Allies/Gunner/gunner_ally.gd" id="1_f4wir"]
+[ext_resource type="Texture2D" uid="uid://d3oycaahp16vv" path="res://Allies/Gunner/portrait/spiderman nerf gun.png" id="1_ig4lw"]
+[ext_resource type="Texture2D" uid="uid://dy8uk0r5tsgac" path="res://assets/projectiles effects idea/Animation Pack/projetilNew.png" id="2_jxkek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsra0"]
+size = Vector2(52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxvbq"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 0, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esahh"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 64, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xdy7"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 128, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao2jg"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 192, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2p5j"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 256, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_077lm"]
+atlas = ExtResource("2_jxkek")
+region = Rect2(0, 320, 256, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_15eye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxvbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esahh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xdy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao2jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2p5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_077lm")
+}],
+"loop": true,
+"name": &"shoot_beam",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2exd7"]
+size = Vector2(212.25262, 7.6588955)
+
 [node name="GunnerAlly" type="Node2D" unique_id=329019018]
+script = ExtResource("1_f4wir")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1169583376]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1264879864]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_gsra0")
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody2D" unique_id=250470660]
+position = Vector2(-2.910383e-11, -3.637979e-12)
+scale = Vector2(0.04028335, 0.05053818)
+texture = ExtResource("1_ig4lw")
+
+[node name="Shoot_effect" type="AnimatedSprite2D" parent="CharacterBody2D/Sprite" unique_id=1369897575]
+position = Vector2(6876.29, -237.44434)
+scale = Vector2(73.44964, 217.429)
+sprite_frames = SubResource("SpriteFrames_15eye")
+animation = &"shoot_beam"
+frame_progress = 0.64694345
+
+[node name="AttackArea" type="Area2D" parent="CharacterBody2D/Sprite/Shoot_effect" unique_id=524144892]
+position = Vector2(2, -3)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Sprite/Shoot_effect/AttackArea" unique_id=1560229229]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(8.430344, 2.9831421)
+shape = SubResource("RectangleShape2D_2exd7")
+debug_color = Color(0.92941177, 0, 0.38039216, 0.41960785)

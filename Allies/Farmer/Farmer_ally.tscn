@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dyhl0oailyycq"]
 
 [ext_resource type="Texture2D" uid="uid://so1r3mrjuv6g" path="res://Allies/Farmer/Farmer animations/Take hit.png" id="1_8wtj6"]
-[ext_resource type="Script" uid="uid://rm5xlfykh402" path="res://Allies/Farmer/farmer_ally.gd" id="1_hw1mo"]
+[ext_resource type="Script" uid="uid://bl17s3n6v22ns" path="res://Allies/Farmer/farmer_ally.gd" id="1_hw1mo"]
 [ext_resource type="Texture2D" uid="uid://80qf1mrsakio" path="res://Allies/Farmer/Farmer animations/Idle.png" id="2_hw1mo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpj1t"]

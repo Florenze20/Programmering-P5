@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dglghhrs7a3jb"]
 
 [ext_resource type="Texture2D" uid="uid://dse5dh1s7ail7" path="res://assets/UI assets pack 2/UI books & more.png" id="1_7vaic"]
+[ext_resource type="Texture2D" uid="uid://d3oycaahp16vv" path="res://Allies/Gunner/portrait/spiderman nerf gun.png" id="2_j211p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j211p"]
 atlas = ExtResource("1_7vaic")
@@ -18,6 +19,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
 
 [node name="Photoframe" type="TextureRect" parent="TextureRect" unique_id=2075695244]
 layout_mode = 0
@@ -25,3 +27,23 @@ offset_right = 44.0
 offset_bottom = 45.0
 scale = Vector2(7.3377256, 6.6523523)
 texture = SubResource("AtlasTexture_j211p")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=90404889]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 55.999996
+offset_right = 1938.0
+offset_bottom = 1473.0
+scale = Vector2(0.12471434, 0.1318461)
+texture = ExtResource("2_j211p")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=55802309]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 215.99998
+offset_right = 128.0
+offset_bottom = 255.99998
+scale = Vector2(4.300839, 2.4337146)
+text = "300"
+metadata/_edit_lock_ = true

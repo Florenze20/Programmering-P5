@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgk4loq767pmf"
-path="res://.godot/imported/Mushroom-Attack.png-4701f52b852e7366882c2840ae06094d.ctex"
+uid="uid://bpkkr7yuiwnf8"
+path="res://.godot/imported/Ball of ice.png-f8186833e51dc7a41cca0720894db6b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom without VFX/Mushroom-Attack.png"
-dest_files=["res://.godot/imported/Mushroom-Attack.png-4701f52b852e7366882c2840ae06094d.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Ice/Ball of ice.png"
+dest_files=["res://.godot/imported/Ball of ice.png-f8186833e51dc7a41cca0720894db6b8.ctex"]
 
 [params]
 

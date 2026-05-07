@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r2jdp13nclo3"
-path="res://.godot/imported/Mushroom-Run.png-3f8f92bb6bd579cfe6987982bf489357.ctex"
+uid="uid://2uwnhwgwexfm"
+path="res://.godot/imported/Shine.png-05e2727f2e432c15e2eb22b1e1704213.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom without VFX/Mushroom-Run.png"
-dest_files=["res://.godot/imported/Mushroom-Run.png-3f8f92bb6bd579cfe6987982bf489357.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Fire/Shine.png"
+dest_files=["res://.godot/imported/Shine.png-05e2727f2e432c15e2eb22b1e1704213.ctex"]
 
 [params]
 

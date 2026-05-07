@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0abhjmxdo705"
-path="res://.godot/imported/Mushroom-Die.png-910b73d04a356b6dc1ad12691da1051f.ctex"
+uid="uid://b0q10ekg3wve0"
+path="res://.godot/imported/Magic Mirror.png-e758b1e8b1a590ef900e797f222b226e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Die.png"
-dest_files=["res://.godot/imported/Mushroom-Die.png-910b73d04a356b6dc1ad12691da1051f.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Magic Mirror.png"
+dest_files=["res://.godot/imported/Magic Mirror.png-e758b1e8b1a590ef900e797f222b226e.ctex"]
 
 [params]
 

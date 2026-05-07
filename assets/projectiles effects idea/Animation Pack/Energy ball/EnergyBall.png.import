@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d281l52mys3eu"
-path="res://.godot/imported/Mushroom-Stun.png-16118223cf9a16430dc82bd9072bc203.ctex"
+uid="uid://ca3r2jc0yr6mc"
+path="res://.godot/imported/EnergyBall.png-f922245ae052159bbf4b90d2227e2643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Stun.png"
-dest_files=["res://.godot/imported/Mushroom-Stun.png-16118223cf9a16430dc82bd9072bc203.ctex"]
+source_file="res://assets/projectiles effects idea/Animation Pack/Energy ball/EnergyBall.png"
+dest_files=["res://.godot/imported/EnergyBall.png-f922245ae052159bbf4b90d2227e2643.ctex"]
 
 [params]
 
