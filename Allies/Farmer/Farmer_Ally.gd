@@ -14,8 +14,8 @@ func _ready():
 	super._ready()
 	
 	# Farmer stats
-	AllyMaxHp = 50
-	AllyHp = 50
+	AllyMaxHp = 35
+	AllyHp = 35
 	AllyCost = 50
 	
 	# Farmer står idle

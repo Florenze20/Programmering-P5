@@ -14,7 +14,7 @@ func _ready():
 	super._ready()
 	
 	# Mushroom stats
-	enemyHP = 60
+	enemyMaxHp = 60
 	EnemySpeed = 10
 	EnemyDamage = 4
 	

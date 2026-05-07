@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://l8r2bso5kl28"]
+
+[node name="GunnerAlly" type="Node2D" unique_id=329019018]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1169583376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1264879864]

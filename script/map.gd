@@ -3,6 +3,8 @@ extends Node2D
 # Tower scenes sættes i Inspector
 @export var farmer_scene: PackedScene
 @export var defender_scene: PackedScene
+@export var gunner_scene: PackedScene
+
 
 # Pris på towers
 @export var farmer_cost: int = 50
