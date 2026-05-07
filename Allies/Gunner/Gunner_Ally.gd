@@ -1,21 +1,18 @@
 extends BasicAlly
 
 @onready var attack_area = $AttackArea
-var attack_damage = 15
-var attack_cooldown = 1.1
-var hit_delay = 0.3
+var attack_damage = 3
+var attack_cooldown = 0.1
+var hit_delay = 0.1
 var can_attack = true
 var is_dead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super._ready()
-	var AllyDRFlat = 5
+	var AllyDRFlat = 0
 	var AllyMaxHp = 25
 	var AllyHp = AllyMaxHp
-	
-	
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,7 +40,7 @@ func find_enemy_in_attack_area():
 func attack(enemy):
 	can_attack = false
 	
-	print("Defender attacker")
+	print("Gunner attacker")
 	
 	# Spiller attack animation
 	sprite.play("attack_animation")
@@ -77,7 +74,7 @@ func AllyDeath():
 	is_dead = true
 	can_attack = false
 	
-	print("Defender døde")
+	print("Gunner døde")
 	
 	var tile_key = get_meta("tile_key", "")
 	var map = get_tree().current_scene

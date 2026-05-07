@@ -107,10 +107,18 @@ func take_damage(amount):
 func die():
 	print("Enemy døde")
 	
+<<<<<<< HEAD
+	# Tilføjer score til map.gd
+	#if map != null:
+	#	map.score += enemyHP
+	#	map.update_score_text()
+	
+=======
 	# Sender score til map.gd
 	died.emit(score_value)
 	
 	# Fjerner hele enemy scenen
+>>>>>>> bd72a2222157423d11026dec4f87c02760ccb752
 	var root = get_parent()
 	
 	if root != null and root.name != "Enemies":
