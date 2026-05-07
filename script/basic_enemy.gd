@@ -5,6 +5,7 @@ class_name EnemyBasic
 # Signal bliver sendt når enemy dør
 signal died(points)
 
+#
 # Hvor meget liv enemy har
 var enemyHP = 25
 
