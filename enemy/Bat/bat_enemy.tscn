@@ -42,7 +42,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j6x17")
 }],
 "loop": true,
-"name": &"default",
+"name": &"running_animation",
 "speed": 18.0
 }]
 
@@ -65,8 +65,8 @@ position = Vector2(0.5294194, -3.8499165)
 rotation = -3.1415925
 scale = Vector2(1.1219516, 0.8941636)
 sprite_frames = SubResource("SpriteFrames_pqa53")
-autoplay = "default"
-frame_progress = 0.9516249
+animation = &"running_animation"
+autoplay = "running_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=227819746]
 position = Vector2(1.0588388, 0.76998234)
