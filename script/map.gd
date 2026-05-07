@@ -9,6 +9,8 @@ extends Node2D
 # Pris på towers
 @export var farmer_cost: int = 50
 @export var defender_cost: int = 100
+@export var gunner_cost: int = 100
+
 
 # Hvor mange liv spilleren starter med
 var lives = 3
