@@ -78,7 +78,6 @@ var enemy_types = [
 	preload("res://enemy/Mushroom/mushroom_enemy.tscn")
 ]
 
-
 func _ready():
 	print("MAP READY")
 	
@@ -335,7 +334,6 @@ func _on_farmer_button_pressed():
 	print("Farmer valgt")
 	print("Farmer cost: ", selected_tower_cost)
 
-
 func _on_defender_button_pressed():
 	if game_over:
 		return
@@ -350,6 +348,19 @@ func _on_defender_button_pressed():
 	print("Defender valgt")
 	print("Defender cost: ", selected_tower_cost)
 
+func _on_gunner_button_pressed():
+	if game_over:
+		return
+	
+	if defender_scene == null:
+		print("Gunner scene er ikke sat i Inspector")
+		return
+	
+	selected_tower_scene = gunner_scene
+	selected_tower_cost = gunner_cost
+	
+	print("Gunner valgt")
+	print("Gunner cost: ", selected_tower_cost)
 
 func _unhandled_input(event):
 	# Man kan ikke placere towers efter game over

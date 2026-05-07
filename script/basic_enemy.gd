@@ -95,9 +95,10 @@ func die():
 	var map = get_tree().current_scene
 	
 	# Tilføjer score til map.gd
-	if map != null:
-		map.score += enemyHP
-		map.update_score_text()
+	#if map != null:
+	#	map.score += enemyHP
+	#	map.update_score_text()
+	
 	var root = get_parent()
 	
 	if root != null and root.name != "Enemies":

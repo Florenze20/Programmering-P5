@@ -1,5 +1,11 @@
 [gd_scene format=3 uid="uid://dglghhrs7a3jb"]
 
+[ext_resource type="Texture2D" uid="uid://dse5dh1s7ail7" path="res://assets/UI assets pack 2/UI books & more.png" id="1_7vaic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j211p"]
+atlas = ExtResource("1_7vaic")
+region = Rect2(722.1686, 65.127075, 44.724182, 45.6511)
+
 [node name="PortraitGunner" type="Control" unique_id=16709946]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +13,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1258181427]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Photoframe" type="TextureRect" parent="TextureRect" unique_id=2075695244]
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 45.0
+scale = Vector2(7.3377256, 6.6523523)
+texture = SubResource("AtlasTexture_j211p")
