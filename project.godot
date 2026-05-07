@@ -21,6 +21,7 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
+Map="*uid://b1y1f8run1oo6"
 InterfaceTower="*uid://cpa4xpxs5odop"
 
 [filesystem]
