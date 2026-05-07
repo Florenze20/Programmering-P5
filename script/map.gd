@@ -246,7 +246,7 @@ func spawn_enemy():
 		print("CharacterBody2D mangler i enemy scene")
 		return
 	
-	# Giver enemy lane-info
+	# Giver enemy lane info
 	enemy_body.lane_index = lane_index
 	enemy_body.lane_y = lane_y
 	
